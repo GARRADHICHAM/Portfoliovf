@@ -1,9 +1,7 @@
 
-import Image from "next/image";
-import { useState } from "react";
-import ProjectIndex from '../components/projectIndex'
+
 import { useRouter } from 'next/router';
-import Link from 'next/link';
+
 const data = [
     {
         id: 0,
