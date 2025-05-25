@@ -1,14 +1,7 @@
-import Image from "next/image";
-import localFont from "next/font/local";
+
 import Hero from "@/components/Hero"
 import LeftSide from '@/components/leftinfo'
-import AboutMe from '@/components/AboutMe'
-import KeyCompetences from '@/components/KeyCompetences'
-import Projects from '@/components/Projects'
-import { useInView } from "react-intersection-observer";
-import Cirtifications from "@/components/Cirtifications"
-import GitHubCal from '@/components/githubCalander'
-import ProjectIndex from '../components/projectIndex'
+
 import { useRouter } from 'next/router';
 
 import { useEffect, useState } from "react";
