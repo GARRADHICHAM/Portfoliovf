@@ -8,6 +8,7 @@ import AboutMe from '@/components/AboutMe'
 import KeyCompetences from '@/components/KeyCompetences'
 import Projects from '@/components/Projects'
 import Certifications from '@/components/Cirtifications'
+import Education from '@/components/Education'
 import GitHubCal from '@/components/githubCalander'
 import { useRouter } from "next/router";
 
@@ -18,10 +19,12 @@ export default function Home() {
   const projectsRef = useRef<HTMLDivElement>(null);
   const certificationsRef = useRef<HTMLDivElement>(null);
   const homeRef = useRef<HTMLDivElement>(null);
+  const educationRef = useRef<HTMLDivElement>(null);
 
   const sections = [
-    { id: 'home', label: 'Home', icon: '👨‍💻', ref: homeRef },
+    { id: 'home', label: 'Home', icon: '🏠', ref: homeRef },
     { id: 'about', label: 'About Me', icon: '👨‍💻', ref: aboutRef },
+     { id: 'education', label: 'Education', icon: '🎓', ref: educationRef },
     { id: 'competences', label: 'Key Competences', icon: '🎯', ref: competencesRef },
     { id: 'projects', label: 'Projects', icon: '🚀', ref: projectsRef },
     { id: 'certifications', label: 'Certifications', icon: '🏆', ref: certificationsRef },
@@ -74,6 +77,7 @@ export default function Home() {
       <div className="flex flex-col">
         <main className="w-full">
           <div ref={aboutRef} className="animate-fadeIn scroll-mt-24"><AboutMe /></div>
+          <div ref={educationRef} className="animate-fadeIn scroll-mt-24"><Education /></div>
           <div ref={competencesRef} className="animate-fadeIn scroll-mt-24"><KeyCompetences /></div>
           <div ref={projectsRef} className="animate-fadeIn scroll-mt-24"><Projects /></div>
           <div ref={certificationsRef} className="animate-fadeIn scroll-mt-24"><Certifications /></div>

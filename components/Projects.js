@@ -85,15 +85,16 @@ const Projects = () => {
 
             <div className="relative z-10 container mx-auto px-6 py-16">
                 {/* Header */}
-                <div className="text-center mb-16">
-                    <h1 className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent mb-4">
-                        Featured
-                        <span className="block text-4xl lg:text-5xl bg-gradient-to-r from-teal-400 to-orange-400 bg-clip-text text-transparent">
+                <div className="pl-[80px] flex flex-col items-start">
+                    <h1 className="flex flex-wrap justify-start items-end gap-2 text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-2">
+                        <span className="bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent drop-shadow-lg">
+                            Featured
+                        </span>
+                        <span className="text-lg sm:text-2xl lg:text-3xl bg-gradient-to-r from-teal-400 to-orange-400 bg-clip-text text-transparent drop-shadow-lg">
                             Projects
                         </span>
                     </h1>
-                    <div className="h-1 w-32 bg-gradient-to-r from-teal-400 to-orange-400 mx-auto rounded-full mb-6"></div>
-               
+                    <div className="h-1 w-32 bg-gradient-to-r from-teal-400 to-orange-400 rounded-full mb-4"></div>
                 </div>
 
                 {/* Category Filter */}

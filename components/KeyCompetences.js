@@ -67,21 +67,22 @@ const KeyCompetences = () => {
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
             </div>
 
-            <div className="relative z-10 container mx-auto px-6 py-8">
+            <div className="relative z-10  mx-auto px-6 py-8">
                 {/* Header */}
-                <div className="text-center mb-16">
-                    <h1 className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent mb-4">
-                        Professional
-                        <span className="block text-4xl lg:text-5xl bg-gradient-to-r from-teal-400 to-orange-400 bg-clip-text text-transparent">
+                <div className="pl-[80px] flex flex-col items-start">
+                    <h1 className="flex flex-wrap justify-start items-end gap-2 text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-2">
+                        <span className="bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent drop-shadow-lg">
+                            Professional
+                        </span>
+                        <span className="text-lg sm:text-2xl lg:text-3xl bg-gradient-to-r from-teal-400 to-orange-400 bg-clip-text text-transparent drop-shadow-lg">
                             Competences
                         </span>
                     </h1>
-                    <div className="h-1 w-32 bg-gradient-to-r from-teal-400 to-orange-400 mx-auto rounded-full mb-6"></div>
-                 
+                    <div className="h-1 w-32 bg-gradient-to-r from-teal-400 to-orange-400 rounded-full mb-4"></div>
                 </div>
 
                 {/* Tab Navigation */}
-                <div className="flex justify-center mb-12">
+                <div className="flex justify-center mb-8">
                     <div className="bg-white/10 backdrop-blur-md rounded-2xl p-2 border border-white/20 shadow-2xl">
                         <div className="flex space-x-1">
                             {competences.map((competence) => (
@@ -99,7 +100,7 @@ const KeyCompetences = () => {
                                 >
                                     {/* Shine effect */}
                                     <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-                                    
+
                                     <div className="relative flex items-center space-x-3">
                                         <span className="text-xl">{competence.icon}</span>
                                         <span className="hidden sm:inline whitespace-nowrap">{competence.title}</span>
@@ -135,7 +136,7 @@ const KeyCompetences = () => {
                                 </h3>
                                 <div className="space-y-4">
                                     {activeCompetence.skills.map((skill, index) => (
-                                        <div 
+                                        <div
                                             key={index}
                                             className="group flex items-start space-x-3 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition-all duration-300 border border-white/10 hover:border-white/20"
                                         >

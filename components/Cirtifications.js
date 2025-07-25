@@ -55,9 +55,7 @@ const Certifications = () => {
                         </span>
                     </h1>
                     <div className="h-1 w-32 bg-gradient-to-r from-teal-400 to-orange-400 mx-auto rounded-full mb-6"></div>
-                    <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-                        Continuously advancing my expertise through industry-recognized certifications
-                    </p>
+      
                 </div>
 
                 {/* Certifications Grid */}
@@ -74,31 +72,7 @@ const Certifications = () => {
                     ))}
                 </div>
 
-                {/* Stats Section */}
-                <div className="mt-20">
-                    <div className="bg-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/20 shadow-2xl">
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                            <div className="space-y-2">
-                                <div className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-teal-400 to-orange-400 bg-clip-text text-transparent">
-                                    {data.length}+
-                                </div>
-                                <div className="text-gray-300 font-medium">Certifications Earned</div>
-                            </div>
-                            <div className="space-y-2">
-                                <div className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-teal-400 to-orange-400 bg-clip-text text-transparent">
-                                    100%
-                                </div>
-                                <div className="text-gray-300 font-medium">Industry Recognized</div>
-                            </div>
-                            <div className="space-y-2">
-                                <div className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-teal-400 to-orange-400 bg-clip-text text-transparent">
-                                    2024
-                                </div>
-                                <div className="text-gray-300 font-medium">Latest Achievement</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </div>
     );
