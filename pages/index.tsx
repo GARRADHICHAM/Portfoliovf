@@ -69,7 +69,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section with top padding to account for fixed nav */}
-      <div ref={homeRef} className="pt-20">
+      <div ref={homeRef} className="">
         <Hero />
       </div>
 

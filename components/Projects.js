@@ -2,11 +2,48 @@ import { useState } from 'react';
 
 const data = [
     {
+
+        id: 5,
+        title: "Breast Cancer Detection SaaS using Deep Learning:",
+        desc: "Preprocessing and enhancement of medical images Design and training of models (classification, segmentation) Integration of models into a backend microservice for deployment via a REST API, with an active learning loop Development of an interactive web platform for assisted breast cancer diagnosis",
+        img: "/brest.png",
+        tags: ["Python", "scikit-learn", "TensorFlow", "Keras" , "next.js" , "FastAPI" , "MongoDB" , "s3 bucket"],
+        category: "AI/ML"
+    },
+    {
+
         id: 0,
         title: "Fraud Detection",
         desc: "Ce travail est réalisé dans le cadre de mon projet de fin d'études effectué au sein de la société HPS, visant à développer un système de détection des fraudes monétique en utilisant des algorithmes de machine Learning.",
         img: "/Fraud.png",
-        tags: ["Python", "scikit-learn", "TensorFlow", "Keras"],
+        tags: ["Python", "scikit-learn", "TensorFlow", "Keras" ],
+        category: "Machine Learning"
+    },
+    {
+
+        id: 9,
+        title: "Big Data Pipeline for Churn Prediction with ML:",
+        desc: "Creation of a pipeline using PySpark, Kafka, and Apache Airflow to process monthly and historical data stored in a Data Warehouse and MySQL. Integration of a churn detection model with Machine Learning and exposure of the results via FastAPI. Data visualization with Power BI.",
+        img: "/churn.png",
+        tags: ["Python", "scikit-learn", "TensorFlow", "Keras" , "PySpark", "Kafka", "Airflow", "FastAPI", "Power BI"],
+        category: "Machine Learning"
+    },
+    {
+
+        id: 12,
+        title: "Revenue Forecasting for B2B SaaS Clients:",
+        desc: "Development of a hybrid model combining ML and time series (XGBoost, Prophet) to predict monthly recurring revenue (MRR). Interactive visualization of forecasts and scenarios using Streamlit.",
+        img: "/sas.png",
+        tags: ["Python", "scikit-learn", "TensorFlow", "Keras" , "XGBoost", "Prophet", "Streamlit" , "FastAPI" , "MongoDB" , "next.js"],
+        category: "Machine Learning"
+    },
+        {
+
+        id: 19,
+        title: "Multi-Agent Recommendation System for an E-Commerce Platform:",
+        desc: "Développement d’un système de recommandation personnalisé utilisant des agents intelligents et des modèles ML. Backend avec FastAPI, MongoDB, et frontend en Next.js.",
+        img: "/sma.png",
+        tags: ["Python", "scikit-learn", "TensorFlow", "Keras" , "FastAPI", "MongoDB", "Next.js" , "s3 bucket"],
         category: "Machine Learning"
     },
     {
@@ -53,7 +90,7 @@ const data = [
         id: 4,
         title: "E-commerce Analysis",
         desc: "A comprehensive e-commerce data analysis project to extract insights from customer behavior, sales patterns, and market trends using advanced analytics techniques.",
-        img: "/foodgredient.webp",
+        img: "/ecom.png",
         tags: ["Python", "Pandas", "Matplotlib", "Data Analysis"],
         category: "Data Analysis"
     },
@@ -64,9 +101,9 @@ const Projects = () => {
     const [hoveredProject, setHoveredProject] = useState(null);
 
     const categories = ['All', ...new Set(data.map(project => project.category))];
-    
-    const filteredProjects = selectedCategory === 'All' 
-        ? data 
+
+    const filteredProjects = selectedCategory === 'All'
+        ? data
         : data.filter(project => project.category === selectedCategory);
 
     const handleProjectClick = (project) => {
@@ -167,7 +204,7 @@ const ProjectCard = ({ project, index, isHovered, onHover, onLeave, onClick }) =
                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                            
+
                             {/* Overlay on hover */}
                             <div className={`
                                 absolute inset-0 bg-gradient-to-r from-teal-500/90 to-orange-500/90 
@@ -176,7 +213,7 @@ const ProjectCard = ({ project, index, isHovered, onHover, onLeave, onClick }) =
                             `}>
                                 <div className="text-white text-center">
                                     <svg className="w-12 h-12 mx-auto mb-2" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.75.75 0 0 1 1.06-1.06l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0z"/>
+                                        <path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.75.75 0 0 1 1.06-1.06l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0z" />
                                     </svg>
                                     <p className="font-semibold">View Project</p>
                                 </div>
@@ -221,7 +258,7 @@ const ProjectCard = ({ project, index, isHovered, onHover, onLeave, onClick }) =
                                 <button className="group/btn inline-flex items-center space-x-2 text-teal-400 hover:text-white font-semibold transition-colors duration-200">
                                     <span>Learn More</span>
                                     <svg className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform duration-200" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.75.75 0 0 1 1.06-1.06l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0z"/>
+                                        <path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.75.75 0 0 1 1.06-1.06l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0z" />
                                     </svg>
                                 </button>
                             </div>

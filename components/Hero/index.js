@@ -36,27 +36,34 @@ const Hero = () => {
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
             </div>
 
+            {/* Blended Background Image */}
+            <div
+                className="absolute inset-0 opacity-30 bg-cover bg-center bg-no-repeat mix-blend-overlay"
+                style={{
+                    backgroundImage: `url('/bgg.jpg')`
+                }}
+            ></div>
+
             {/* Navigation Bar */}
-            
+
             {/* Main Hero Content */}
-            <div className=" pt-16 flex items-center justify-center relative z-10">
+            <div className=" pt-32 flex items-center justify-center relative z-10">
                 <div className="container mx-auto px-6 lg:px-20">
                     <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
 
                         {/* Left side - Profile Info */}
                         <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 flex-1">
                             {/* Profile Picture */}
-                            <div className="relative group">
-                                <div className="absolute -inset-1 bg-gradient-to-r from-teal-400 to-orange-400 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
+                             <div className="relative group">
                                 <div className="relative">
                                     <img
-                                        src="images/me.jpg"
+                                        src="/mee2.png"
                                         alt="Hicham Garrad"
-                                        className="w-48 h-48 lg:w-56 lg:h-56 rounded-full object-cover border-4 border-white/20 shadow-2xl transform hover:scale-105 transition-all duration-500"
+                                        className="w-48 h-48 lg:w-full lg:h-[500px]  object-cover   shadow-2xl transform hover:scale-105 transition-all duration-500"
                                     />
-                                    <div className="absolute inset-0 rounded-full bg-gradient-to-t from-black/20 to-transparent"></div>
+                                    <div className="absolute inset-0  bg-gradient-to-t from-black/20 to-transparent"></div>
                                 </div>
-                            </div>
+                            </div> 
 
                             {/* Text Content */}
                             <div className="text-center lg:text-left space-y-6">

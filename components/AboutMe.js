@@ -2,7 +2,7 @@ import React from "react";
 
 const AboutMe = () => {
     return (
-        <div className="min-h-screen px-16 py-10 w-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex flex-col relative overflow-hidden">
+        <div className="h-screen px-16 py-10 w-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex flex-col relative overflow-hidden">
             {/* Header */}
             <div className="flex items-center mb-10">
                 <div className="w-1 h-10 bg-gradient-to-b from-teal-500 to-orange-500 rounded-full mr-4 shadow-lg"></div>
