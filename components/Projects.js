@@ -7,7 +7,7 @@ const data = [
         title: "Breast Cancer Detection SaaS using Deep Learning:",
         desc: "Preprocessing and enhancement of medical images Design and training of models (classification, segmentation) Integration of models into a backend microservice for deployment via a REST API, with an active learning loop Development of an interactive web platform for assisted breast cancer diagnosis",
         img: "/brest.png",
-        tags: ["Python", "scikit-learn", "TensorFlow", "Keras" , "next.js" , "FastAPI" , "MongoDB" , "s3 bucket"],
+        tags: ["Python", "scikit-learn", "TensorFlow", "Keras", "next.js", "FastAPI", "MongoDB", "s3 bucket"],
         category: "AI/ML"
     },
     {
@@ -16,7 +16,7 @@ const data = [
         title: "Fraud Detection",
         desc: "Ce travail est réalisé dans le cadre de mon projet de fin d'études effectué au sein de la société HPS, visant à développer un système de détection des fraudes monétique en utilisant des algorithmes de machine Learning.",
         img: "/Fraud.png",
-        tags: ["Python", "scikit-learn", "TensorFlow", "Keras" ],
+        tags: ["Python", "scikit-learn", "TensorFlow", "Keras"],
         category: "Machine Learning"
     },
     {
@@ -25,7 +25,7 @@ const data = [
         title: "Big Data Pipeline for Churn Prediction with ML:",
         desc: "Creation of a pipeline using PySpark, Kafka, and Apache Airflow to process monthly and historical data stored in a Data Warehouse and MySQL. Integration of a churn detection model with Machine Learning and exposure of the results via FastAPI. Data visualization with Power BI.",
         img: "/churn.png",
-        tags: ["Python", "scikit-learn", "TensorFlow", "Keras" , "PySpark", "Kafka", "Airflow", "FastAPI", "Power BI"],
+        tags: ["Python", "scikit-learn", "TensorFlow", "Keras", "PySpark", "Kafka", "Airflow", "FastAPI", "Power BI"],
         category: "Machine Learning"
     },
     {
@@ -34,16 +34,16 @@ const data = [
         title: "Revenue Forecasting for B2B SaaS Clients:",
         desc: "Development of a hybrid model combining ML and time series (XGBoost, Prophet) to predict monthly recurring revenue (MRR). Interactive visualization of forecasts and scenarios using Streamlit.",
         img: "/sas.png",
-        tags: ["Python", "scikit-learn", "TensorFlow", "Keras" , "XGBoost", "Prophet", "Streamlit" , "FastAPI" , "MongoDB" , "next.js"],
+        tags: ["Python", "scikit-learn", "TensorFlow", "Keras", "XGBoost", "Prophet", "Streamlit", "FastAPI", "MongoDB", "next.js"],
         category: "Machine Learning"
     },
-        {
+    {
 
         id: 19,
         title: "Multi-Agent Recommendation System for an E-Commerce Platform:",
         desc: "Développement d’un système de recommandation personnalisé utilisant des agents intelligents et des modèles ML. Backend avec FastAPI, MongoDB, et frontend en Next.js.",
         img: "/sma.png",
-        tags: ["Python", "scikit-learn", "TensorFlow", "Keras" , "FastAPI", "MongoDB", "Next.js" , "s3 bucket"],
+        tags: ["Python", "scikit-learn", "TensorFlow", "Keras", "FastAPI", "MongoDB", "Next.js", "s3 bucket"],
         category: "Machine Learning"
     },
     {
@@ -99,6 +99,7 @@ const data = [
 const Projects = () => {
     const [selectedCategory, setSelectedCategory] = useState('All');
     const [hoveredProject, setHoveredProject] = useState(null);
+    const [selectedProject, setSelectedProject] = useState(null);
 
     const categories = ['All', ...new Set(data.map(project => project.category))];
 
@@ -106,9 +107,14 @@ const Projects = () => {
         ? data
         : data.filter(project => project.category === selectedCategory);
 
+    // Update your handleProjectClick function to this:
     const handleProjectClick = (project) => {
-        // Handle project navigation here
-        console.log('Navigate to project:', project);
+        setSelectedProject(project);
+    };
+
+    // Add this function to close the modal:
+    const closeModal = () => {
+        setSelectedProject(null);
     };
 
     return (
@@ -176,6 +182,12 @@ const Projects = () => {
                     </div>
                 </div>
             </div>
+            {selectedProject && (
+                <ProjectModal
+                    project={selectedProject}
+                    onClose={closeModal}
+                />
+            )}
         </div>
     );
 };
@@ -263,6 +275,132 @@ const ProjectCard = ({ project, index, isHovered, onHover, onLeave, onClick }) =
                                 </button>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+// Add this ProjectModal component (place it after your ProjectCard component):
+const ProjectModal = ({ project, onClose }) => {
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    // Mock additional images - replace with actual project images
+    const projectImages = [
+        project.img,
+        project.img, // Replace with actual additional images
+        project.img, // Replace with actual additional images
+        project.img  // Replace with actual additional images
+    ];
+
+    const nextImage = () => {
+        setCurrentImageIndex((prev) => (prev + 1) % projectImages.length);
+    };
+
+    const prevImage = () => {
+        setCurrentImageIndex((prev) => (prev - 1 + projectImages.length) % projectImages.length);
+    };
+
+    const goToImage = (index) => {
+        setCurrentImageIndex(index);
+    };
+
+    return (
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+            <div className="bg-slate-900/95 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
+                {/* Modal Header */}
+                <div className="flex justify-between items-center p-6 border-b border-white/10">
+                    <div>
+                        <span className="px-3 py-1 text-xs font-semibold bg-gradient-to-r from-teal-500 to-orange-500 text-white rounded-full">
+                            {project.category}
+                        </span>
+                        <h2 className="text-2xl font-bold text-white mt-2">{project.title}</h2>
+                    </div>
+                    <button
+                        onClick={onClose}
+                        className="text-gray-400 hover:text-white transition-colors duration-200 p-2"
+                    >
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div className="overflow-y-auto max-h-[calc(90vh-80px)]">
+                    {/* Image Slider */}
+                    <div className="relative">
+                        <div className="aspect-video relative overflow-hidden">
+                            <img
+                                src={projectImages[currentImageIndex]}
+                                alt={`${project.title} - Image ${currentImageIndex + 1}`}
+                                className="w-full h-full object-cover"
+                            />
+
+                            {/* Navigation Arrows */}
+                            {projectImages.length > 1 && (
+                                <>
+                                    <button
+                                        onClick={prevImage}
+                                        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-all duration-200"
+                                    >
+                                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                                        </svg>
+                                    </button>
+                                    <button
+                                        onClick={nextImage}
+                                        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-all duration-200"
+                                    >
+                                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </button>
+                                </>
+                            )}
+                        </div>
+
+                        {/* Image Indicators */}
+                        {projectImages.length > 1 && (
+                            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                                {projectImages.map((_, index) => (
+                                    <button
+                                        key={index}
+                                        onClick={() => goToImage(index)}
+                                        className={`w-3 h-3 rounded-full transition-all duration-200 ${index === currentImageIndex
+                                            ? 'bg-white'
+                                            : 'bg-white/50 hover:bg-white/75'
+                                            }`}
+                                    />
+                                ))}
+                            </div>
+                        )}
+                    </div>
+
+                    {/* Project Details */}
+                    <div className="p-6 space-y-6">
+                        {/* Description */}
+                        <div>
+                            <h3 className="text-lg font-semibold text-white mb-3">Description</h3>
+                            <p className="text-gray-300 leading-relaxed">{project.desc}</p>
+                        </div>
+
+                        {/* Technologies */}
+                        <div>
+                            <h3 className="text-lg font-semibold text-white mb-3">Technologies Used</h3>
+                            <div className="flex flex-wrap gap-2">
+                                {project.tags.map((tag, index) => (
+                                    <span
+                                        key={index}
+                                        className="px-3 py-1 text-sm font-medium bg-white/10 text-gray-300 rounded-lg border border-white/20"
+                                    >
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
             </div>
