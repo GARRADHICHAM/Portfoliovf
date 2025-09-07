@@ -50,7 +50,7 @@ const Hero = () => {
                         {/* Left side - Profile Info */}
                         <div className="flex flex-col sm:flex-row lg:flex-row items-center lg:items-start gap-6 sm:gap-8 flex-1">
                             {/* Profile Picture */}
-                            <div className="relative group flex-shrink-0">
+                            <div className="relative hidden sm:block group flex-shrink-0">
                                 <div className="relative">
                                     <img
                                         src="/mee2.png"
