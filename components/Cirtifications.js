@@ -40,26 +40,25 @@ const Certifications = () => {
         <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
             {/* Animated background elements */}
             <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute top-20 right-20 w-72 h-72 bg-teal-500/10 rounded-full blur-3xl animate-pulse"></div>
-                <div className="absolute bottom-20 left-20 w-72 h-72 bg-orange-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
+                <div className="absolute top-10 right-10 sm:top-20 sm:right-20 w-40 h-40 sm:w-72 sm:h-72 bg-teal-500/10 rounded-full blur-3xl animate-pulse"></div>
+                <div className="absolute bottom-10 left-10 sm:bottom-20 sm:left-20 w-40 h-40 sm:w-72 sm:h-72 bg-orange-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 sm:w-96 sm:h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
             </div>
 
-            <div className="relative z-10 container mx-auto px-6 py-16">
+            <div className="relative z-10 container mx-auto px-4 sm:px-6 py-8 sm:py-16">
                 {/* Header */}
-                <div className="text-center mb-16">
-                    <h1 className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent mb-4">
+                <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent mb-2 sm:mb-4">
                         Professional
-                        <span className="block text-4xl lg:text-5xl bg-gradient-to-r from-teal-400 to-orange-400 bg-clip-text text-transparent">
+                        <span className="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl bg-gradient-to-r from-teal-400 to-orange-400 bg-clip-text text-transparent mt-1">
                             Certifications
                         </span>
                     </h1>
-                    <div className="h-1 w-32 bg-gradient-to-r from-teal-400 to-orange-400 mx-auto rounded-full mb-6"></div>
-      
+                    <div className="h-1 w-20 sm:w-32 bg-gradient-to-r from-teal-400 to-orange-400 mx-auto rounded-full mb-4 sm:mb-6"></div>
                 </div>
 
                 {/* Certifications Grid */}
-                <div className="max-w-6xl mx-auto space-y-8">
+                <div className="max-w-6xl mx-auto space-y-6 sm:space-y-8">
                     {data.map((cert, index) => (
                         <CertificationCard
                             key={cert.id}
@@ -71,8 +70,6 @@ const Certifications = () => {
                         />
                     ))}
                 </div>
-
-                
             </div>
         </div>
     );
@@ -96,18 +93,15 @@ const CertificationCard = ({ certification, index, isHovered, onHover, onLeave }
 
     return (
         <div
-            className={`
-                group cursor-pointer transition-all duration-500 transform hover:scale-[1.02]
-                ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'}
-            `}
+            className="group cursor-pointer transition-all duration-500 transform hover:scale-[1.02]"
             onMouseEnter={onHover}
             onMouseLeave={onLeave}
         >
-            <div className="bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500">
-                <div className={`flex flex-col lg:flex-row ${!isEven ? 'lg:flex-row-reverse' : ''} h-full`}>
+            <div className="bg-white/10 backdrop-blur-xl rounded-2xl sm:rounded-3xl border border-white/20 shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500">
+                <div className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} h-full`}>
                     {/* Image/Certificate Section */}
-                    <div className="lg:w-2/5 relative overflow-hidden">
-                        <div className="aspect-video lg:aspect-auto lg:h-full relative">
+                    <div className="w-full lg:w-2/5 relative overflow-hidden">
+                        <div className="aspect-video lg:aspect-auto lg:h-full relative min-h-[200px] sm:min-h-[250px] lg:min-h-[300px]">
                             <img
                                 src={certification.img}
                                 alt={certification.title}
@@ -116,16 +110,16 @@ const CertificationCard = ({ certification, index, isHovered, onHover, onLeave }
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                             
                             {/* Certificate Badge */}
-                            <div className="absolute top-4 left-4">
-                                <div className="bg-white/20 backdrop-blur-sm rounded-full px-3 py-1 border border-white/30">
-                                    <span className="text-white text-sm font-semibold">🏆 Certified</span>
+                            <div className="absolute top-2 left-2 sm:top-4 sm:left-4">
+                                <div className="bg-white/20 backdrop-blur-sm rounded-full px-2 py-1 sm:px-3 sm:py-1 border border-white/30">
+                                    <span className="text-white text-xs sm:text-sm font-semibold">🏆 Certified</span>
                                 </div>
                             </div>
 
                             {/* Verification Badge */}
-                            <div className="absolute bottom-4 right-4">
-                                <div className="bg-green-500/90 backdrop-blur-sm rounded-full p-2 border border-green-400/50">
-                                    <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <div className="absolute bottom-2 right-2 sm:bottom-4 sm:right-4">
+                                <div className="bg-green-500/90 backdrop-blur-sm rounded-full p-1.5 sm:p-2 border border-green-400/50">
+                                    <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
                                     </svg>
                                 </div>
@@ -134,40 +128,40 @@ const CertificationCard = ({ certification, index, isHovered, onHover, onLeave }
                     </div>
 
                     {/* Content Section */}
-                    <div className="lg:w-3/5 p-8 lg:p-12 flex flex-col justify-center">
-                        <div className="space-y-6">
+                    <div className="w-full lg:w-3/5 p-4 sm:p-6 lg:p-8 xl:p-12 flex flex-col justify-center">
+                        <div className="space-y-4 sm:space-y-6">
                             {/* Header Info */}
-                            <div className="flex flex-wrap items-center gap-3 mb-4">
-                                <span className={`px-3 py-1 text-xs font-semibold bg-gradient-to-r ${getLevelColor(certification.level)} text-white rounded-full`}>
+                            <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-2 sm:gap-3 mb-2 sm:mb-4">
+                                <span className={`inline-block px-2 sm:px-3 py-1 text-xs font-semibold bg-gradient-to-r ${getLevelColor(certification.level)} text-white rounded-full`}>
                                     {certification.level}
                                 </span>
-                                <span className="text-gray-400 text-sm">
+                                <span className="text-gray-400 text-xs sm:text-sm">
                                     {certification.issuer} • {certification.date}
                                 </span>
                             </div>
 
                             {/* Title */}
-                            <h3 className="text-2xl lg:text-3xl font-bold text-white group-hover:bg-gradient-to-r group-hover:from-teal-400 group-hover:to-orange-400 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                            <h3 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold text-white group-hover:bg-gradient-to-r group-hover:from-teal-400 group-hover:to-orange-400 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300 leading-tight">
                                 {certification.title}
                             </h3>
 
                             {/* Description */}
-                            <p className="text-gray-300 leading-relaxed text-sm lg:text-base">
+                            <p className="text-gray-300 leading-relaxed text-sm sm:text-base line-clamp-4 sm:line-clamp-none">
                                 {certification.desc}
                             </p>
 
                             {/* Skills */}
                             {certification.skills && (
-                                <div className="space-y-3">
-                                    <h4 className="text-sm font-semibold text-gray-200 flex items-center">
+                                <div className="space-y-2 sm:space-y-3">
+                                    <h4 className="text-xs sm:text-sm font-semibold text-gray-200 flex items-center">
                                         <span className="w-2 h-2 bg-gradient-to-r from-teal-400 to-orange-400 rounded-full mr-2"></span>
                                         Skills Gained
                                     </h4>
-                                    <div className="flex flex-wrap gap-2">
+                                    <div className="flex flex-wrap gap-1 sm:gap-2">
                                         {certification.skills.map((skill, skillIndex) => (
                                             <span
                                                 key={skillIndex}
-                                                className="px-3 py-1 text-xs font-medium bg-white/10 text-gray-300 rounded-lg border border-white/20 hover:bg-white/20 transition-colors duration-200"
+                                                className="px-2 sm:px-3 py-1 text-xs font-medium bg-white/10 text-gray-300 rounded-lg border border-white/20 hover:bg-white/20 transition-colors duration-200"
                                             >
                                                 {skill}
                                             </span>
@@ -177,9 +171,9 @@ const CertificationCard = ({ certification, index, isHovered, onHover, onLeave }
                             )}
 
                             {/* Action Buttons */}
-                            <div className="flex flex-wrap gap-3 pt-4">
-                                <button className="group/btn inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-teal-500 to-orange-500 text-white rounded-lg font-semibold text-sm hover:shadow-lg transition-all duration-200 hover:scale-105">
-                                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 pt-2 sm:pt-4">
+                                <button className="group/btn inline-flex items-center justify-center sm:justify-start space-x-2 px-3 sm:px-4 py-2 bg-gradient-to-r from-teal-500 to-orange-500 text-white rounded-lg font-semibold text-xs sm:text-sm hover:shadow-lg transition-all duration-200 hover:scale-105">
+                                    <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/>
                                         <polyline points="14,2 14,8 20,8"/>
                                         <line x1="16" y1="13" x2="8" y2="13"/>
@@ -189,9 +183,9 @@ const CertificationCard = ({ certification, index, isHovered, onHover, onLeave }
                                     <span>View Certificate</span>
                                 </button>
                                 
-                                <button className="group/btn inline-flex items-center space-x-2 text-teal-400 hover:text-white font-semibold text-sm transition-colors duration-200">
+                                <button className="group/btn inline-flex items-center justify-center sm:justify-start space-x-2 text-teal-400 hover:text-white font-semibold text-xs sm:text-sm transition-colors duration-200 py-2">
                                     <span>Verify Credential</span>
-                                    <svg className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform duration-200" fill="currentColor" viewBox="0 0 24 24">
+                                    <svg className="w-3 h-3 sm:w-4 sm:h-4 transform group-hover/btn:translate-x-1 transition-transform duration-200" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.75.75 0 0 1 1.06-1.06l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0z"/>
                                     </svg>
                                 </button>

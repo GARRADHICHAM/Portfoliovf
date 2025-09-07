@@ -62,15 +62,15 @@ const KeyCompetences = () => {
         <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
             {/* Animated background elements */}
             <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute top-20 right-20 w-72 h-72 bg-teal-500/10 rounded-full blur-3xl animate-pulse"></div>
-                <div className="absolute bottom-20 left-20 w-72 h-72 bg-orange-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
+                <div className="absolute top-10 right-10 sm:top-20 sm:right-20 w-32 h-32 sm:w-72 sm:h-72 bg-teal-500/10 rounded-full blur-3xl animate-pulse"></div>
+                <div className="absolute bottom-10 left-10 sm:bottom-20 sm:left-20 w-32 h-32 sm:w-72 sm:h-72 bg-orange-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 sm:w-96 sm:h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
             </div>
 
-            <div className="relative z-10  mx-auto px-6 py-8">
+            <div className="relative z-10 mx-auto px-4 sm:px-6 py-6 sm:py-8">
                 {/* Header */}
-                <div className="pl-[80px] flex flex-col items-start">
-                    <h1 className="flex flex-wrap justify-start items-end gap-2 text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-2">
+                <div className="pl-4 sm:pl-8 lg:pl-[80px] flex flex-col items-start mb-6 sm:mb-8">
+                    <h1 className="flex flex-col sm:flex-row sm:flex-wrap sm:justify-start sm:items-end gap-1 sm:gap-2 text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-2">
                         <span className="bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent drop-shadow-lg">
                             Professional
                         </span>
@@ -78,32 +78,32 @@ const KeyCompetences = () => {
                             Competences
                         </span>
                     </h1>
-                    <div className="h-1 w-32 bg-gradient-to-r from-teal-400 to-orange-400 rounded-full mb-4"></div>
+                    <div className="h-1 w-24 sm:w-32 bg-gradient-to-r from-teal-400 to-orange-400 rounded-full mb-4"></div>
                 </div>
 
                 {/* Tab Navigation */}
-                <div className="flex justify-center mb-8">
-                    <div className="bg-white/10 backdrop-blur-md rounded-2xl p-2 border border-white/20 shadow-2xl">
-                        <div className="flex space-x-1">
+                <div className="flex justify-center mb-6 sm:mb-8 px-2">
+                    <div className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-1 sm:p-2 border border-white/20 shadow-2xl max-w-full overflow-x-auto">
+                        <div className="flex space-x-1 min-w-max sm:min-w-0">
                             {competences.map((competence) => (
                                 <button
                                     key={competence.id}
                                     onClick={() => setActiveTab(competence.id)}
                                     className={`
-                                        relative px-6 py-4 rounded-xl font-semibold text-sm transition-all duration-300
+                                        relative px-3 py-2 sm:px-4 lg:px-6 sm:py-3 lg:py-4 rounded-lg sm:rounded-xl font-semibold text-xs sm:text-sm transition-all duration-300
                                         ${activeTab === competence.id
                                             ? `bg-gradient-to-r ${competence.color} text-white shadow-lg transform scale-105`
                                             : 'text-gray-300 hover:bg-white/10 hover:text-white'
                                         }
-                                        group overflow-hidden
+                                        group overflow-hidden whitespace-nowrap
                                     `}
                                 >
                                     {/* Shine effect */}
                                     <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
 
-                                    <div className="relative flex items-center space-x-3">
-                                        <span className="text-xl">{competence.icon}</span>
-                                        <span className="hidden sm:inline whitespace-nowrap">{competence.title}</span>
+                                    <div className="relative flex items-center space-x-2 sm:space-x-3">
+                                        <span className="text-base sm:text-lg lg:text-xl">{competence.icon}</span>
+                                        <span className="hidden sm:inline">{competence.title}</span>
                                     </div>
                                 </button>
                             ))}
@@ -112,36 +112,36 @@ const KeyCompetences = () => {
                 </div>
 
                 {/* Content */}
-                <div className="max-w-6xl mx-auto">
-                    <div className="bg-white/10 backdrop-blur-xl rounded-3xl p-8 lg:p-12 border border-white/20 shadow-2xl">
+                <div className="max-w-6xl mx-auto px-2 sm:px-0">
+                    <div className="bg-white/10 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 xl:p-12 border border-white/20 shadow-2xl">
                         {/* Section Header */}
-                        <div className="flex items-center space-x-4 mb-8">
-                            <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${activeCompetence.color} flex items-center justify-center text-2xl shadow-lg`}>
+                        <div className="flex flex-col sm:flex-row sm:items-center space-y-3 sm:space-y-0 sm:space-x-4 mb-6 sm:mb-8">
+                            <div className={`w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-r ${activeCompetence.color} flex items-center justify-center text-lg sm:text-xl lg:text-2xl shadow-lg flex-shrink-0`}>
                                 {activeCompetence.icon}
                             </div>
                             <div>
-                                <h2 className="text-3xl lg:text-4xl font-bold text-white mb-2">
+                                <h2 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-white mb-1 sm:mb-2">
                                     {activeCompetence.title}
                                 </h2>
-                                <div className={`h-1 w-24 bg-gradient-to-r ${activeCompetence.color} rounded-full`}></div>
+                                <div className={`h-1 w-16 sm:w-20 lg:w-24 bg-gradient-to-r ${activeCompetence.color} rounded-full`}></div>
                             </div>
                         </div>
 
                         {/* Skills Grid */}
-                        <div className="grid lg:grid-cols-2 gap-8 mb-10">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-10">
                             <div>
-                                <h3 className="text-xl font-semibold text-gray-200 mb-6 flex items-center">
-                                    <span className="w-2 h-2 bg-gradient-to-r from-teal-400 to-orange-400 rounded-full mr-3"></span>
+                                <h3 className="text-lg sm:text-xl font-semibold text-gray-200 mb-4 sm:mb-6 flex items-center">
+                                    <span className="w-2 h-2 bg-gradient-to-r from-teal-400 to-orange-400 rounded-full mr-3 flex-shrink-0"></span>
                                     Core Skills
                                 </h3>
-                                <div className="space-y-4">
+                                <div className="space-y-3 sm:space-y-4">
                                     {activeCompetence.skills.map((skill, index) => (
                                         <div
                                             key={index}
-                                            className="group flex items-start space-x-3 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition-all duration-300 border border-white/10 hover:border-white/20"
+                                            className="group flex items-start space-x-3 p-2 sm:p-3 rounded-lg sm:rounded-xl bg-white/5 hover:bg-white/10 transition-all duration-300 border border-white/10 hover:border-white/20"
                                         >
-                                            <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${activeCompetence.color} mt-2 flex-shrink-0 group-hover:scale-125 transition-transform duration-300`}></div>
-                                            <p className="text-gray-300 text-sm leading-relaxed group-hover:text-white transition-colors duration-300">
+                                            <div className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gradient-to-r ${activeCompetence.color} mt-2 flex-shrink-0 group-hover:scale-125 transition-transform duration-300`}></div>
+                                            <p className="text-gray-300 text-xs sm:text-sm leading-relaxed group-hover:text-white transition-colors duration-300">
                                                 {skill}
                                             </p>
                                         </div>
@@ -150,20 +150,20 @@ const KeyCompetences = () => {
                             </div>
 
                             <div>
-                                <h3 className="text-xl font-semibold text-gray-200 mb-6 flex items-center">
-                                    <span className="w-2 h-2 bg-gradient-to-r from-teal-400 to-orange-400 rounded-full mr-3"></span>
+                                <h3 className="text-lg sm:text-xl font-semibold text-gray-200 mb-4 sm:mb-6 flex items-center">
+                                    <span className="w-2 h-2 bg-gradient-to-r from-teal-400 to-orange-400 rounded-full mr-3 flex-shrink-0"></span>
                                     Technologies & Tools
                                 </h3>
-                                <div className="flex flex-wrap gap-3">
+                                <div className="flex flex-wrap gap-2 sm:gap-3">
                                     {activeCompetence.tools.map((tool, index) => (
                                         <span
                                             key={index}
                                             className={`
-                                                px-4 py-2 rounded-full text-sm font-medium
+                                                px-2 py-1 sm:px-3 lg:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium
                                                 bg-gradient-to-r ${activeCompetence.color} text-white
                                                 shadow-lg hover:shadow-xl transform hover:scale-105
                                                 transition-all duration-300 cursor-default
-                                                border border-white/20
+                                                border border-white/20 break-words
                                             `}
                                         >
                                             {tool}
@@ -174,7 +174,7 @@ const KeyCompetences = () => {
                         </div>
 
                         {/* Bottom accent */}
-                        <div className={`h-1 w-full bg-gradient-to-r ${activeCompetence.color} rounded-full opacity-50`}></div>
+                        <div className={`h-0.5 sm:h-1 w-full bg-gradient-to-r ${activeCompetence.color} rounded-full opacity-50`}></div>
                     </div>
                 </div>
             </div>

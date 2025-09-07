@@ -6,7 +6,7 @@ const Hero = () => {
 
     const handleDownloadResume = () => {
         const link = document.createElement('a');
-        link.href = 'CV_HICHAM_GARRAD_D_S_ALT.pdf';
+        link.href = 'CVport.pdf';
         link.download = 'Garrad_Hicham_Resume.pdf';
         link.click();
         console.log('Resume downloaded');
@@ -43,7 +43,7 @@ const Hero = () => {
             ></div>
 
             {/* Main Hero Content */}
-            <div className="pt-16 sm:pt-24 lg:pt-32 flex items-center justify-center relative z-10 flex-1">
+            <div className=" sm:pt-24 lg:pt-32 flex items-center justify-center relative z-10 flex-1">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-20">
                     <div className="flex flex-col lg:flex-row items-center justify-between gap-8 sm:gap-12 lg:gap-20">
 
@@ -74,7 +74,7 @@ const Hero = () => {
                                 </div>
 
                                 <p className="text-lg sm:text-xl lg:text-2xl text-gray-300 font-light">
-                                    Junior Data Scientist
+                                    Junior Data Scientist / web developer
                                 </p>
 
                                 <p className="text-sm sm:text-base text-gray-400 max-w-sm sm:max-w-md leading-relaxed">
