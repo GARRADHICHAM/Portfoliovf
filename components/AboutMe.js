@@ -37,14 +37,12 @@ const AboutMe = () => {
                     <div className="flex-1 max-w-sm border border-teal-700 mt-4 p-4 mx-auto lg:mx-0 mb-4 lg:mb-0">
                         <div className="flex flex-col gap-4 font-nunito text-gray-100 z-10 relative">
                             <div className="flex items-center gap-2">
-                                <span className="text-sm     font-medium">Adress : Biot, Provence-Alpes-Côte d'Azur, France</span>
+                                <span className="text-sm     font-medium">Adress : Provence-Alpes-Côte d'Azur, France</span>
                             </div>
                             <div className="flex items-center gap-2">
-                                <span className="text-sm   font-medium">Phone1 : +212 6 91 56 86 69</span>
+                                <span className="text-sm   font-medium">Phone : +33 6 12 79 89 24</span>
                             </div>
-                             <div className="flex items-center gap-2">
-                                <span className="text-sm  font-medium">Phone2 : +33 6 91 56 86 69</span>
-                            </div>
+
                             <div className="flex items-center gap-2">
                                 <span className="text-sm  font-medium">Email : hichamgarrad21@gmail.com</span>
                             </div>

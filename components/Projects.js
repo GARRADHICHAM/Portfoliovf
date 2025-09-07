@@ -308,7 +308,7 @@ const ProjectModal = ({ project, onClose }) => {
 
     return (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-            <div className="bg-slate-900/95 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
+            <div className="bg-slate-900/95 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl max-w-4xl w-full max-h-[100vh] overflow-hidden">
                 {/* Modal Header */}
                 <div className="flex justify-between items-center p-6 border-b border-white/10">
                     <div>
