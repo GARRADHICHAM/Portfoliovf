@@ -6,8 +6,8 @@ const Hero = () => {
 
     const handleDownloadResume = () => {
         const link = document.createElement('a');
-        link.href = 'CVport.pdf';
-        link.download = 'Garrad_Hicham_Resume.pdf';
+        link.href = 'CV-GARRAD-HICHAM.pdf';
+        link.download = 'CV-GARRAD-HICHAM.pdf';
         link.click();
         console.log('Resume downloaded');
     };
@@ -74,7 +74,7 @@ const Hero = () => {
                                 </div>
 
                                 <p className="text-lg sm:text-xl lg:text-2xl text-gray-300 font-light">
-                                    Junior Data Scientist / web developer
+                                    Junior Data Scientist
                                 </p>
 
                                 <p className="text-sm sm:text-base text-gray-400 max-w-sm sm:max-w-md leading-relaxed">
@@ -87,7 +87,7 @@ const Hero = () => {
                                     <svg width="14" height="14" className="sm:w-4 sm:h-4" fill='white' xmlns="http://www.w3.org/2000/svg" id="Filled" viewBox="0 0 24 24">
                                         <path d="M12,.042a9.992,9.992,0,0,0-9.981,9.98c0,2.57,1.99,6.592,5.915,11.954a5.034,5.034,0,0,0,8.132,0c3.925-5.362,5.915-9.384,5.915-11.954A9.992,9.992,0,0,0,12,.042ZM12,14a4,4,0,1,1,4-4A4,4,0,0,1,12,14Z" />
                                     </svg>
-                                    <h1 className="text-xs sm:text-sm text-gray-50">Provence-Alpes-Côte d'Azur, France</h1>
+                                    <h1 className="text-xs sm:text-sm text-gray-50">Vallauris, France</h1>
                                 </div>
 
                                 {/* Social Links */}

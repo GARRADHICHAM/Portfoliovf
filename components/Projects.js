@@ -297,7 +297,7 @@ const ProjectModal = ({ project, onClose }) => {
 
     return (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-2 sm:p-4">
-            <div className="bg-slate-900/95 backdrop-blur-xl rounded-2xl sm:rounded-3xl border border-white/20 shadow-2xl max-w-4xl w-full max-h-[95vh] sm:max-h-[90vh] overflow-hidden">
+            <div className="bg-slate-900/95 backdrop-blur-xl rounded-2xl sm:rounded-3xl border border-white/20 shadow-2xl max-w-4xl w-full max-h-[95vh] sm:max-h-[90vh]  overflow-hidden">
                 {/* Modal Header */}
                 <div className="flex justify-between items-start sm:items-center p-4 sm:p-6 border-b border-white/10">
                     <div className="flex-1 pr-4">
@@ -316,7 +316,7 @@ const ProjectModal = ({ project, onClose }) => {
                     </button>
                 </div>
 
-                <div className="overflow-y-auto max-h-[calc(95vh-80px)] sm:max-h-[calc(90vh-80px)]">
+                <div className="overflow-y-auto max-h-[calc(95vh-80px)] sm:max-h-[calc(90vh-80px)] pb-8">
                     {/* Image Slider */}
                     <div className="relative">
                         <div className="aspect-video relative overflow-hidden">

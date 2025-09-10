@@ -31,7 +31,7 @@ const AboutMe = () => {
                     <div className="relative z-10">
                         <p className="text-white font-nunito text-sm sm:text-base lg:text-lg leading-relaxed text-justify">
                             <span className="text-xl sm:text-2xl mr-2">👨‍💼</span>
-                            Bonjour, je m'appelle <span className="font-bold text-teal-400 sm:text-lg lg:text-xl">Hicham Garrad</span>, diplômé d'un Master en Business Intelligence & Big Data, passionné par la data science et l'IA. Compétent en analyse de données, modélisation prédictive et outils Big Data. Je m'installe en France en juillet 2025 et recherche une alternance à cette période alternance dans le domaine de la data, de l'intelligence artificielle, en parallèle de mon Master 2 MIAGE – IA Appliquée à l'Université Côte d'Azur.
+                            Bonjour, je m'appelle <span className="font-bold text-teal-400 sm:text-lg lg:text-xl">Hicham Garrad</span>, diplômé d’un Master en Business Intelligence & Big Data et passionné par la data science et l’intelligence artificielle. Installé en France et actuellement en Master 2 MIAGE – IA Appliquée à l’Université Côte d’Azur, je suis immédiatement disponible pour une alternance afin de mettre mes compétences en pratique dans un environnement stimulant.
                         </p>
                     </div>
 
@@ -40,7 +40,7 @@ const AboutMe = () => {
                         <div className="space-y-3 sm:space-y-4 font-nunito text-gray-100 relative z-10">
                             <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
                                 <span className="text-xs sm:text-sm font-semibold text-teal-400">Adresse:</span>
-                                <span className="text-xs sm:text-sm font-medium break-words">Provence-Alpes-Côte d'Azur, France</span>
+                                <span className="text-xs sm:text-sm font-medium break-words">Vallauris, France</span>
                             </div>
                             
                             <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
