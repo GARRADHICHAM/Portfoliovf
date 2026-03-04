@@ -31,7 +31,7 @@ const AboutMe = () => {
                     <div className="relative z-10">
                         <p className="text-white font-nunito text-sm sm:text-base lg:text-lg leading-relaxed text-justify">
                             <span className="text-xl sm:text-2xl mr-2">👨‍💼</span>
-                            Bonjour, je m'appelle <span className="font-bold text-teal-400 sm:text-lg lg:text-xl">Hicham Garrad</span>, diplômé d’un Master en Business Intelligence & Big Data et passionné par la data science et l’intelligence artificielle. Installé en France et actuellement en Master 2 MIAGE – IA Appliquée à l’Université Côte d’Azur, je suis immédiatement disponible pour une alternance afin de mettre mes compétences en pratique dans un environnement stimulant.
+                            Hello, my name is <span className="font-bold text-teal-400 sm:text-lg lg:text-xl">Hicham Garrad.</span> I hold a Master’s degree in Business Intelligence & Big Data and am passionate about data science and artificial intelligence. Based in France and currently pursuing a Master 2 in MIAGE – Applied AI at the University Côte d’Azur, I am immediately available for an internship to apply my skills in a stimulating environment.
                         </p>
                     </div>
 
