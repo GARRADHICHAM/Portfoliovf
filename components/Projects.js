@@ -121,6 +121,33 @@ const data = [
     title: "City-Info",
     desc: "Conception et développement d'une application Android en Java qui facilite le processus de géolocalisation autour d'une ville se basent sur les différents points d'intérêts de citoyen.",
     img: "/City.png",
+    images: [
+      "/Smart /Screenshot_20220326_124144_com.example.smartcity_v10.jpg",
+      "/Smart /Screenshot_20220326_124150_com.example.smartcity_v10.jpg",
+      "/Smart /Screenshot_20220326_134922_com.example.smartcity_v10.jpg",
+      "/Smart /Screenshot_20220326_134936_com.example.smartcity_v10.jpg",
+      "/Smart /Screenshot_20220326_135246_com.example.smartcity_v10.jpg",
+      "/Smart /Screenshot_20220326_135250_com.example.smartcity_v10.jpg",
+      "/Smart /Screenshot_20220326_135303_com.example.smartcity_v10.jpg",
+      "/Smart /Screenshot_20220326_135320_com.example.smartcity_v10.jpg",
+      "/Smart /Screenshot_20220326_135327_com.example.smartcity_v10.jpg",
+      "/Smart /Screenshot_20220326_135339_com.example.smartcity_v10.jpg",
+      "/Smart /Screenshot_20220326_135404_com.example.smartcity_v10.jpg",
+      "/Smart /Screenshot_20220326_135412_com.example.smartcity_v10.jpg",
+      "/Smart /Screenshot_20220326_135419_com.example.smartcity_v10.jpg",
+      "/Smart /Screenshot_20220326_135503_com.example.smartcity_v10.jpg",
+      "/Smart /Screenshot_20220326_135627_com.example.smartcity_v10.jpg",
+      "/Smart /Screenshot_20220326_135722_com.example.smartcity_v10.jpg",
+      "/Smart /Screenshot_20220326_135727_com.example.smartcity_v10.jpg",
+      "/Smart /Screenshot_20220326_142350_com.example.smartcity_v10.jpg",
+      "/Smart /Screenshot_20220326_142404_com.example.smartcity_v10.jpg",
+      "/Smart /Screenshot_20220326_142455_com.example.smartcity_v10.jpg",
+      "/Smart /Screenshot_20220326_202922_com.example.smartcity_v10.jpg",
+      "/Smart /Screenshot_20220326_214134_com.example.smartcity_v10.jpg",
+      "/Smart /Screenshot_20220326_214224_com.example.smartcity_v10.jpg",
+      "/Smart /Screenshot_20220326_230900_com.example.smartcity_v10.jpg",
+      "/Smart /Screenshot_20220328_165542_com.example.smartcity_v10.jpg",
+    ],
     tags: ["Java", "MySQL", "RESTful API", "Android"],
     category: "Mobile Development",
   },
@@ -357,12 +384,9 @@ const ProjectCard = ({
 const ProjectModal = ({ project, onClose }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  // Mock additional images - replace with actual project images
-  const projectImages = [
-    project.img,
-    project.img2, // Replace with actual additional images
-    project.img3, // Replace with actual additional images
-  ];
+  const projectImages = project.images
+    ? project.images
+    : [project.img, project.img2, project.img3].filter(Boolean);
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % projectImages.length);
@@ -414,11 +438,12 @@ const ProjectModal = ({ project, onClose }) => {
         <div className="overflow-y-auto max-h-[calc(95vh-80px)] sm:max-h-[calc(90vh-80px)] pb-8">
           {/* Image Slider */}
           <div className="relative">
-            <div className="aspect-video relative overflow-hidden">
+            <div className="relative overflow-hidden bg-black flex items-center justify-center" style={{minHeight: "320px", maxHeight: "60vh"}}>
               <img
                 src={projectImages[currentImageIndex]}
                 alt={`${project.title} - Image ${currentImageIndex + 1}`}
-                className="w-full h-full "
+                className="max-w-full max-h-full object-contain"
+                style={{maxHeight: "60vh"}}
               />
 
               {/* Navigation Arrows */}
