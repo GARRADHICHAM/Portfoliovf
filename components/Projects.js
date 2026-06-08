@@ -2,6 +2,20 @@ import { useState } from "react";
 
 const data = [
   {
+    id: 21,
+    title: "Serveur MCP pour API Hôtelière",
+    desc: "Serveur MCP (TypeScript) orchestrant 5 tools d'intégration entre Claude AI et l'API hôtelière Thaïs, gestion des réservations, disponibilités et tarifs en langage naturel. Architecture modulaire 4 couches.",
+    img: "/info.png",
+    tags: [
+      "TypeScript",
+      "MCP",
+      "Claude AI",
+      "API Integration",
+      "Node.js",
+    ],
+    category: "AI/ML",
+  },
+  {
     id: 20,
     title: "Automated Investment Platform — ADK Multi-Agents",
     desc: "Automated investment platform using Google ADK to orchestrate 6 specialized LLM agents (Gemini 2.5 Flash Lite) for financial market analysis and portfolio allocation. Features dynamic parameter extraction, sequential pipeline with loop refinement, REST API deployed on Google Cloud Run with CI/CD via GitHub Actions, and a Next.js chatbot frontend on Vercel.",
@@ -251,7 +265,6 @@ const Projects = () => {
 const ProjectCard = ({
   project,
   index,
-  isHovered,
   onHover,
   onLeave,
   onClick,

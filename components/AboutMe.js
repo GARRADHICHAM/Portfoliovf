@@ -1,4 +1,5 @@
 import React from "react";
+import { useInView } from "react-intersection-observer";
 
 const specialties = [
   {
@@ -85,8 +86,21 @@ const contacts = [
 ];
 
 const AboutMe = () => {
+  const { ref: topRef, inView: topVisible } = useInView({ threshold: 0.05, triggerOnce: true });
+  const { ref: cardsRef, inView: cardsVisible } = useInView({ threshold: 0.05, triggerOnce: true });
+  const { ref: contactRef, inView: contactVisible } = useInView({ threshold: 0.05, triggerOnce: true });
+
+  const fadeUp = (visible, delay = 0) => ({
+    opacity: visible ? 1 : 0,
+    transform: visible ? "translateY(0)" : "translateY(40px)",
+    transition: `opacity 0.7s ease-out ${delay}ms, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
+  });
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden flex flex-col justify-center px-4 sm:px-8 lg:px-16 py-12 sm:py-16">
+    <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden flex flex-col justify-center px-4 sm:px-8 lg:px-16 py-16 sm:py-20">
+
+      {/* Gradient leading edge — blends Hero into About Me as it slides over */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-slate-900 via-slate-900/80 to-transparent pointer-events-none z-30"></div>
 
       {/* Background blobs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -101,52 +115,25 @@ const AboutMe = () => {
 
       <div className="relative z-10 max-w-6xl mx-auto w-full space-y-10 sm:space-y-14">
 
-        {/* ── Section header ── */}
-        <div className="flex flex-col items-start">
+        {/* Section header */}
+        <div ref={topRef} style={fadeUp(topVisible)} className="flex flex-col items-start">
           <h1 className="flex flex-wrap items-end gap-2 text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-2">
             <span className="bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">About</span>
             <span className="text-xl sm:text-2xl lg:text-3xl bg-gradient-to-r from-teal-400 to-orange-400 bg-clip-text text-transparent">Me</span>
           </h1>
           <div className="h-1 w-20 sm:w-28 bg-gradient-to-r from-teal-400 to-orange-400 rounded-full"></div>
-        </div>
-
-        {/* ── Intro ── */}
-        <div className="space-y-4 sm:space-y-6">
-          <div className="space-y-1">
-            <p className="text-gray-400 text-sm sm:text-base font-medium tracking-widest uppercase">Hello, I'm</p>
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black bg-gradient-to-r from-white via-teal-200 to-orange-300 bg-clip-text text-transparent leading-tight">
-              Hicham Garrad
-            </h2>
-            <p className="text-teal-400 font-semibold text-base sm:text-xl tracking-wide">
-              AI Full Stack Developer
-            </p>
-          </div>
-
-          <p className="text-gray-300 text-sm sm:text-base lg:text-lg leading-relaxed max-w-3xl">
-            I hold a Master's degree in{" "}
-            <span className="text-teal-400 font-semibold">Business Intelligence & Big Data</span> and
-            am currently completing a{" "}
-            <span className="text-teal-400 font-semibold">Master 2 MIAGE — Applied AI</span> at
-            Université Côte d'Azur. My work sits at the intersection of{" "}
-            <span className="text-orange-400 font-semibold">AI agent systems</span>,{" "}
-            <span className="text-orange-400 font-semibold">data engineering</span>, and{" "}
-            <span className="text-orange-400 font-semibold">full-stack development</span> — with
-            hands-on experience across startups, multinationals, and research labs.
+          <p className="text-gray-400 text-sm sm:text-base mt-4 max-w-xl leading-relaxed" style={fadeUp(topVisible, 150)}>
+            Here's a closer look at what I specialise in and how to reach me.
           </p>
-
-          {/* Availability badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-400/30 text-emerald-400 text-sm font-semibold">
-            <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
-            Available for CDI from October 2026
-          </div>
         </div>
 
-        {/* ── Specialty cards ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+        {/* Specialty cards */}
+        <div ref={cardsRef} className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
           {specialties.map((s, i) => (
             <div
               key={i}
-              className="group bg-white/5 hover:bg-white/10 border border-white/10 hover:border-teal-400/40 rounded-2xl p-5 sm:p-6 transition-all duration-300 hover:shadow-xl hover:shadow-teal-500/10 hover:scale-[1.02]"
+              style={fadeUp(cardsVisible, i * 150)}
+              className="group bg-white/5 hover:bg-white/10 border border-white/10 hover:border-teal-400/40 rounded-2xl p-5 sm:p-6 transition-colors duration-300 hover:shadow-xl hover:shadow-teal-500/10 hover:scale-[1.02]"
             >
               <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-teal-500/20 to-orange-500/20 border border-white/10 flex items-center justify-center text-teal-400 mb-4 group-hover:from-teal-500/30 group-hover:to-orange-500/30 transition-all duration-300">
                 {s.icon}
@@ -159,8 +146,8 @@ const AboutMe = () => {
           ))}
         </div>
 
-        {/* ── Contact grid ── */}
-        <div className="bg-white/5 border border-white/10 rounded-2xl p-5 sm:p-8">
+        {/* Contact grid */}
+        <div ref={contactRef} style={fadeUp(contactVisible)} className="bg-white/5 border border-white/10 rounded-2xl p-5 sm:p-8">
           <h3 className="text-white font-semibold text-sm sm:text-base mb-5 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-gradient-to-r from-teal-400 to-orange-400"></span>
             Get in touch
@@ -168,7 +155,7 @@ const AboutMe = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
             {contacts.map((c, i) => {
               const inner = (
-                <div className="flex items-center gap-3 p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-teal-400/30 transition-all duration-200 group/c">
+                <div style={fadeUp(contactVisible, 80 + i * 80)} className="flex items-center gap-3 p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-teal-400/30 transition-all duration-200 group/c">
                   <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-teal-500/20 to-orange-500/20 flex items-center justify-center text-teal-400 flex-shrink-0">
                     {c.icon}
                   </div>

@@ -2,7 +2,6 @@ import { useState } from "react";
 
 const Hero = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
 
   const handleDownloadResume = () => {
     const link = document.createElement("a");
@@ -18,11 +17,6 @@ const Hero = () => {
 
   const closeModal = () => {
     setIsModalOpen(false);
-  };
-
-  const handleSectionClick = (sectionId) => {
-    setActiveSection(sectionId);
-    console.log(`Navigating to ${sectionId}`);
   };
 
   return (
@@ -62,24 +56,33 @@ const Hero = () => {
 
               {/* Text Content */}
               <div className="text-center sm:text-left lg:text-left space-y-4 sm:space-y-6 flex-1">
-                <div className="space-y-2">
-                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent leading-tight">
-                    HICHAM
+                <div className="space-y-1 sm:space-y-2">
+                  <p className="text-gray-400 text-xs sm:text-sm font-medium tracking-widest uppercase">
+                    Hello, I'm
+                  </p>
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent leading-tight">
+                    Hicham
                     <span className="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl bg-gradient-to-r from-teal-400 to-orange-400 bg-clip-text text-transparent">
-                      GARRAD
+                      Garrad
                     </span>
                   </h1>
                   <div className="h-1 w-16 sm:w-20 md:w-24 bg-gradient-to-r from-teal-400 to-orange-400 mx-auto sm:mx-0 lg:mx-0 rounded-full"></div>
                 </div>
 
-                <p className="text-lg sm:text-xl lg:text-2xl text-gray-300 font-light">
+                <p className="text-teal-400 font-semibold text-base sm:text-xl tracking-wide">
                   AI Full Stack Developer
                 </p>
 
-                <p className="text-sm sm:text-base text-gray-400 max-w-sm sm:max-w-md leading-relaxed">
-                  Passionate about transforming data into actionable insights,
-                  specializing in AI, full-stack development, machine learning,
-                  data visualization, and statistical analysis.
+                <p className="text-gray-300 text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-lg">
+                  I hold a Master's degree in{" "}
+                  <span className="text-teal-400 font-semibold">Business Intelligence & Big Data</span>{" "}
+                  and am currently completing a{" "}
+                  <span className="text-teal-400 font-semibold">Master 2 MIAGE — Applied AI</span>{" "}
+                  at Université Côte d'Azur. My work sits at the intersection of{" "}
+                  <span className="text-orange-400 font-semibold">AI agent systems</span>,{" "}
+                  <span className="text-orange-400 font-semibold">data engineering</span>, and{" "}
+                  <span className="text-orange-400 font-semibold">full-stack development</span>{" "}
+                  — with hands-on experience across startups, multinationals, and research labs.
                 </p>
 
                 {/* Location */}
@@ -189,6 +192,22 @@ const Hero = () => {
               </button>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Bottom gradient — blends Hero into About Me */}
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-b from-transparent to-slate-900 pointer-events-none z-20"></div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2">
+        <span className="text-gray-500 text-xs tracking-widest uppercase">Scroll</span>
+        <div className="flex flex-col items-center gap-1 animate-bounce">
+          <svg className="w-5 h-5 text-teal-400/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+          <svg className="w-5 h-5 text-orange-400/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
         </div>
       </div>
 

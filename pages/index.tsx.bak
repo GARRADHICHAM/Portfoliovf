@@ -91,15 +91,20 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section with top padding to account for fixed nav */}
-      <div ref={homeRef} className="">
-        <Hero />
+      {/* Hero Section — sticky container gives 100vh of "pinned" scroll time */}
+      <div ref={homeRef} className="relative" style={{ height: '200vh' }}>
+        <div className="sticky top-0 h-screen overflow-hidden z-10">
+          <Hero />
+        </div>
       </div>
 
       {/* Main Content */}
       <div className="flex flex-col">
         <main className="w-full">
-          <div ref={aboutRef} className="animate-fadeIn scroll-mt-24"><AboutMe /></div>
+          {/* About Me slides up OVER the Hero as you scroll */}
+          <div ref={aboutRef} className="relative z-20 scroll-mt-24" style={{ marginTop: '-100vh' }}>
+            <AboutMe />
+          </div>
           <div ref={educationRef} className="animate-fadeIn scroll-mt-24"><Education /></div>
           <div ref={experienceRef} className="animate-fadeIn scroll-mt-24"><Experience /></div>
           <div ref={competencesRef} className="animate-fadeIn scroll-mt-24"><KeyCompetences /></div>

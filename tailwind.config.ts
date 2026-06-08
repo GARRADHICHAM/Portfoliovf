@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: "class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -8,20 +9,16 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-      },
-      fontFamily: {
-        'nunito': ['nunito', 'sans-serif'],
-        poppins: ["Poppins", "sans-serif"],
-        Roboto: ["Roboto", "sans-serif"],
-        Helvetica: ['"Helvetica Neue"',  'sans-serif'],
-        arial: ["Arial","sans-serif"],
-        "lato": ['Lato', 'sans-serif']
       },
     },
   },
   plugins: [],
 };
+
 export default config;
