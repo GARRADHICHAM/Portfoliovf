@@ -53,7 +53,7 @@ export default function NavBar() {
         </nav>
 
         <div className="hidden md:flex items-center gap-2">
-          <
+          <a
             href="/CV_HICHAM_GARRAD_Ni.pdf"
             download
             className="px-4 py-1.5 text-sm font-semibold bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors duration-200 shadow-lg shadow-blue-500/20"
