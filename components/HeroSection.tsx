@@ -78,7 +78,6 @@ export default function HeroSection() {
           {/* Availability badge */}
           <motion.div variants={fadeUp}>
             <span className="inline-flex items-center gap-2 text-xs text-zinc-400 bg-zinc-900/80 border border-zinc-800 rounded-full px-4 py-1.5 backdrop-blur-sm">
-              <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
               CDI disponible · Octobre 2026
             </span>
           </motion.div>
