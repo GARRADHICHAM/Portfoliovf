@@ -5,14 +5,8 @@ const data = [
     id: 21,
     title: "Serveur MCP pour API Hôtelière",
     desc: "Serveur MCP (TypeScript) orchestrant 5 tools d'intégration entre Claude AI et l'API hôtelière Thaïs, gestion des réservations, disponibilités et tarifs en langage naturel. Architecture modulaire 4 couches.",
-    img: "/info.png",
-    tags: [
-      "TypeScript",
-      "MCP",
-      "Claude AI",
-      "API Integration",
-      "Node.js",
-    ],
+    img: "/MCP.png",
+    tags: ["TypeScript", "MCP", "Claude AI", "API Integration", "Node.js"],
     category: "AI/ML",
   },
   {
@@ -262,13 +256,7 @@ const Projects = () => {
   );
 };
 
-const ProjectCard = ({
-  project,
-  index,
-  onHover,
-  onLeave,
-  onClick,
-}) => {
+const ProjectCard = ({ project, index, onHover, onLeave, onClick }) => {
   const isEven = index % 2 === 0;
 
   return (
@@ -426,12 +414,15 @@ const ProjectModal = ({ project, onClose }) => {
         <div className="overflow-y-auto max-h-[calc(95vh-80px)] sm:max-h-[calc(90vh-80px)] pb-8">
           {/* Image Slider */}
           <div className="relative">
-            <div className="relative overflow-hidden bg-black flex items-center justify-center" style={{minHeight: "320px", maxHeight: "60vh"}}>
+            <div
+              className="relative overflow-hidden bg-black flex items-center justify-center"
+              style={{ minHeight: "320px", maxHeight: "60vh" }}
+            >
               <img
                 src={projectImages[currentImageIndex]}
                 alt={`${project.title} - Image ${currentImageIndex + 1}`}
                 className="max-w-full max-h-full object-contain"
-                style={{maxHeight: "60vh"}}
+                style={{ maxHeight: "60vh" }}
               />
 
               {/* Navigation Arrows */}

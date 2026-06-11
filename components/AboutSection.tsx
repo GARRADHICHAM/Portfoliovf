@@ -78,9 +78,9 @@ export default function AboutSection() {
                 {stats.map((stat, i) => (
                   <div
                     key={i}
-                    className="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800 hover:border-zinc-700 transition-colors duration-200"
+                    className="group p-4 rounded-xl bg-zinc-900/60 border border-zinc-800 hover:border-blue-500/30 hover:bg-zinc-900 transition-all duration-200"
                   >
-                    <p className="text-2xl font-bold text-zinc-100">{stat.value}</p>
+                    <p className="text-2xl font-bold text-zinc-100 group-hover:text-blue-400 transition-colors duration-200">{stat.value}</p>
                     <p className="text-sm text-zinc-500 mt-0.5">{stat.label}</p>
                   </div>
                 ))}

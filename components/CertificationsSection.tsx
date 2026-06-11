@@ -63,7 +63,7 @@ export default function CertificationsSection() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {certs.map((cert, i) => (
             <AnimatedSection key={cert.id} delay={0.1 + i * 0.1}>
-              <div className="group bg-zinc-900/50 border border-zinc-800 rounded-2xl overflow-hidden hover:border-zinc-700 hover:bg-zinc-900 transition-all duration-300 flex flex-col h-full">
+              <div className="group bg-zinc-900/50 border border-zinc-800 rounded-2xl overflow-hidden hover:border-blue-500/30 hover:bg-zinc-900 hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-500/[0.07] transition-all duration-300 flex flex-col h-full">
                 <div className="relative h-40 overflow-hidden bg-zinc-800 flex-shrink-0">
                   <img
                     src={cert.img}

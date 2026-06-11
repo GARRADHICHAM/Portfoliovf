@@ -40,7 +40,7 @@ function HobbyCard({
       initial={{ opacity: 0, y: 28 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay, ease: EASE }}
-      className="flex-1 min-w-0 bg-zinc-900/50 border border-zinc-800 rounded-2xl overflow-hidden hover:border-zinc-700 transition-colors duration-300 group"
+      className="flex-1 min-w-0 bg-zinc-900/50 border border-zinc-800 rounded-2xl overflow-hidden hover:border-blue-500/30 hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-500/[0.07] transition-all duration-300 group"
     >
       {/* Image — 4/3 aspect ratio */}
       <div className="relative w-full aspect-[4/3] overflow-hidden">

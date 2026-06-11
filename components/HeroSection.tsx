@@ -41,19 +41,24 @@ export default function HeroSection() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 80% 55% at 50% -5%, rgba(37, 99, 235, 0.22) 0%, transparent 70%)",
+            "radial-gradient(ellipse 80% 55% at 50% -5%, rgba(37, 99, 235, 0.25) 0%, transparent 70%), radial-gradient(ellipse 40% 35% at 85% 80%, rgba(37, 99, 235, 0.07) 0%, transparent 70%)",
         }}
       />
 
-      {/* Dot grid */}
+      {/* Dot grid — fades toward the bottom */}
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.35]"
         style={{
           backgroundImage:
             "radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px)",
           backgroundSize: "28px 28px",
+          maskImage: "linear-gradient(to bottom, black 30%, transparent 85%)",
+          WebkitMaskImage: "linear-gradient(to bottom, black 30%, transparent 85%)",
         }}
       />
+
+      {/* Thin glowing beam under the navbar area */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-px bg-gradient-to-r from-transparent via-blue-500/40 to-transparent pointer-events-none" />
 
       {/* Bottom fade to section below */}
       <div className="absolute bottom-0 left-0 right-0 h-48 pointer-events-none bg-gradient-to-t from-[#09090B] to-transparent" />
@@ -77,7 +82,7 @@ export default function HeroSection() {
         <div className="flex flex-col items-center lg:items-start gap-5 text-center lg:text-left flex-1">
           {/* Availability badge */}
           <motion.div variants={fadeUp}>
-            <span className="inline-flex items-center gap-2 text-xs text-zinc-400 bg-zinc-900/80 border border-zinc-800 rounded-full px-4 py-1.5 backdrop-blur-sm">
+            <span className="inline-flex items-center gap-2 text-xs text-blue-300/90 bg-blue-500/[0.07] border border-blue-500/20 rounded-full px-4 py-1.5 backdrop-blur-sm">
               CDI disponible · Octobre 2026
             </span>
           </motion.div>
@@ -88,7 +93,7 @@ export default function HeroSection() {
             className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-zinc-100 leading-none"
           >
             Hicham{" "}
-            <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+            <span className="animate-gradient bg-gradient-to-r from-blue-400 via-sky-300 to-blue-600 bg-clip-text text-transparent">
               Garrad
             </span>
           </motion.h1>
@@ -130,7 +135,7 @@ export default function HeroSection() {
             <a
               href="/CV_HICHAM_GARRAD_Ni.pdf"
               download
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold rounded-lg transition-colors duration-200 shadow-lg shadow-blue-500/20"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold rounded-lg transition-all duration-200 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 hover:-translate-y-0.5"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -139,7 +144,7 @@ export default function HeroSection() {
             </a>
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-transparent hover:bg-zinc-900 text-zinc-200 text-sm font-semibold rounded-lg border border-zinc-800 hover:border-zinc-700 transition-all duration-200"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-transparent hover:bg-zinc-900 text-zinc-200 text-sm font-semibold rounded-lg border border-zinc-800 hover:border-zinc-600 transition-all duration-200 hover:-translate-y-0.5"
             >
               Me contacter
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -7,6 +7,16 @@ import CertificationsSection from "@/components/CertificationsSection";
 import BeyondCode from "@/components/BeyondCode";
 import ContactSection from "@/components/ContactSection";
 
+function Divider() {
+  return (
+    <div className="bg-[#09090B]">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="h-px bg-gradient-to-r from-transparent via-zinc-800 to-transparent" />
+      </div>
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     <>
@@ -14,10 +24,15 @@ export default function Home() {
       <main>
         <HeroSection />
         <AboutSection />
+        <Divider />
         <ExperienceSection />
+        <Divider />
         <ProjectsSection />
+        <Divider />
         <CertificationsSection />
+        <Divider />
         <BeyondCode />
+        <Divider />
         <ContactSection />
       </main>
     </>
