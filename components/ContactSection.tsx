@@ -15,8 +15,18 @@ const socials: SocialItem[] = [
     value: "hichamgarrad21@gmail.com",
     href: "mailto:hichamgarrad21@gmail.com",
     renderIcon: () => (
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+      <svg
+        className="w-4 h-4"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.75}
+          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+        />
       </svg>
     ),
   },
@@ -51,8 +61,11 @@ export default function ContactSection() {
     e.preventDefault();
     const form = e.currentTarget;
     const name = (form.elements.namedItem("name") as HTMLInputElement).value;
-    const subject = (form.elements.namedItem("subject") as HTMLInputElement).value || "Contact depuis le portfolio";
-    const message = (form.elements.namedItem("message") as HTMLTextAreaElement).value;
+    const subject =
+      (form.elements.namedItem("subject") as HTMLInputElement).value ||
+      "Contact depuis le portfolio";
+    const message = (form.elements.namedItem("message") as HTMLTextAreaElement)
+      .value;
 
     setStatus("sending");
     const sub = encodeURIComponent(`[Portfolio] ${subject}`);
@@ -67,11 +80,15 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="relative bg-[#09090B] py-24 sm:py-32 overflow-hidden">
+    <section
+      id="contact"
+      className="relative bg-[#09090B] py-24 sm:py-32 overflow-hidden"
+    >
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-72 pointer-events-none"
         style={{
-          background: "radial-gradient(ellipse 60% 100% at 50% 0%, rgba(37, 99, 235, 0.1) 0%, transparent 70%)",
+          background:
+            "radial-gradient(ellipse 60% 100% at 50% 0%, rgba(37, 99, 235, 0.1) 0%, transparent 70%)",
         }}
       />
 
@@ -84,8 +101,8 @@ export default function ContactSection() {
             Travaillons ensemble
           </h2>
           <p className="text-zinc-400 text-base mb-14 max-w-lg">
-            Je suis actuellement en stage et disponible pour un CDI à partir d&apos;octobre 2026.
-            N&apos;hésitez pas à me contacter.
+            Je suis actuellement en stage et disponible pour un CDI à partir de
+            September 2026. N&apos;hésitez pas à me contacter.
           </p>
         </AnimatedSection>
 
@@ -98,7 +115,9 @@ export default function ContactSection() {
                   <a
                     key={social.label}
                     href={social.href}
-                    target={social.href.startsWith("http") ? "_blank" : undefined}
+                    target={
+                      social.href.startsWith("http") ? "_blank" : undefined
+                    }
                     rel="noopener noreferrer"
                     className="flex items-center gap-4 group"
                   >
@@ -122,8 +141,12 @@ export default function ContactSection() {
                     Disponibilité
                   </span>
                 </div>
-                <p className="text-zinc-200 text-sm font-semibold">CDI · Octobre 2026</p>
-                <p className="text-zinc-500 text-xs mt-1">Nice, France · Open au remote</p>
+                <p className="text-zinc-200 text-sm font-semibold">
+                  CDI · September 2026
+                </p>
+                <p className="text-zinc-500 text-xs mt-1">
+                  Mobilité nationale, France · Open au remote
+                </p>
               </div>
             </div>
           </AnimatedSection>
@@ -133,7 +156,9 @@ export default function ContactSection() {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-medium text-zinc-500 mb-1.5">Nom</label>
+                  <label className="block text-xs font-medium text-zinc-500 mb-1.5">
+                    Nom
+                  </label>
                   <input
                     name="name"
                     type="text"
@@ -143,7 +168,9 @@ export default function ContactSection() {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-zinc-500 mb-1.5">Sujet</label>
+                  <label className="block text-xs font-medium text-zinc-500 mb-1.5">
+                    Sujet
+                  </label>
                   <input
                     name="subject"
                     type="text"
@@ -153,7 +180,9 @@ export default function ContactSection() {
                 </div>
               </div>
               <div>
-                <label className="block text-xs font-medium text-zinc-500 mb-1.5">Email</label>
+                <label className="block text-xs font-medium text-zinc-500 mb-1.5">
+                  Email
+                </label>
                 <input
                   name="email"
                   type="email"
@@ -163,7 +192,9 @@ export default function ContactSection() {
                 />
               </div>
               <div>
-                <label className="block text-xs font-medium text-zinc-500 mb-1.5">Message</label>
+                <label className="block text-xs font-medium text-zinc-500 mb-1.5">
+                  Message
+                </label>
                 <textarea
                   name="message"
                   required
@@ -192,7 +223,10 @@ export default function ContactSection() {
           <p className="text-xs text-zinc-700">
             © 2026 Hicham Garrad — Ingénieur IA &amp; Data
           </p>
-          <a href="#hero" className="text-xs text-zinc-600 hover:text-zinc-400 transition-colors">
+          <a
+            href="#hero"
+            className="text-xs text-zinc-600 hover:text-zinc-400 transition-colors"
+          >
             Haut de page ↑
           </a>
         </div>

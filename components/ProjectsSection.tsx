@@ -12,9 +12,44 @@ type Project = {
   tags: string[];
   category: string;
   demo?: string;
+  /** Optional per-project accent color scheme. Defaults to "blue" (existing look). */
+  accent?: "blue" | "violet";
 };
 
+// Tailwind classes per accent scheme. "blue" matches the original hardcoded
+// classes exactly, so any project without an explicit `accent` renders
+// pixel-identical to before.
+const ACCENTS = {
+  blue: {
+    cardBorder: "hover:border-blue-500/30",
+    cardShadow: "hover:shadow-blue-500/[0.07]",
+    cardLink: "text-blue-400 hover:text-blue-300",
+    badge: "bg-blue-500/10 border-blue-500/30 text-blue-400",
+    dotActive: "bg-blue-500",
+    button: "bg-blue-600 hover:bg-blue-500 shadow-blue-500/20",
+  },
+  violet: {
+    cardBorder: "hover:border-violet-500/30",
+    cardShadow: "hover:shadow-violet-500/[0.07]",
+    cardLink: "text-violet-400 hover:text-violet-300",
+    badge: "bg-violet-500/10 border-violet-500/30 text-violet-400",
+    dotActive: "bg-violet-500",
+    button: "bg-violet-600 hover:bg-violet-500 shadow-violet-500/20",
+  },
+} as const;
+
 const projects: Project[] = [
+  {
+    id: 22,
+    title: "EthicAI — AI Ethics Auditor",
+    desc: "Extension VS Code d'audit éthique automatisé pour modèles IA : biais, explicabilité SHAP, robustesse et conformité EU AI Act (12 articles) en 30 secondes, 100% en local. Architecture TypeScript ↔ Python en streaming NDJSON, moteur Fairlearn/SHAP, rapports PDF générés via ReportLab.",
+    img: "/ethicai/ethic1.png",
+    images: ["/ethicai/ethic1.png", "/ethicai/ethic2.png", "/ethicai/ethic3.png", "/ethicai/ethic4.png"],
+    tags: ["TypeScript", "Python", "VS Code API", "Fairlearn", "SHAP", "Firebase", "Next.js", "ReportLab"],
+    category: "AI & LLM",
+    demo: "https://ethic-ai-front.vercel.app/",
+    accent: "violet",
+  },
   {
     id: 21,
     title: "Serveur MCP pour API Hôtelière",
@@ -110,6 +145,7 @@ const projects: Project[] = [
 const filters = ["Tous", "AI & LLM", "Data", "Full Stack"];
 
 function ProjectCard({ project, onClick }: { project: Project; onClick: () => void }) {
+  const accent = ACCENTS[project.accent ?? "blue"];
   return (
     <motion.div
       layout
@@ -118,7 +154,7 @@ function ProjectCard({ project, onClick }: { project: Project; onClick: () => vo
       exit={{ opacity: 0, scale: 0.96 }}
       transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
       onClick={onClick}
-      className="group cursor-pointer bg-zinc-900/50 border border-zinc-800 rounded-2xl overflow-hidden hover:border-blue-500/30 hover:bg-zinc-900 hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-500/[0.07] transition-all duration-300 flex flex-col"
+      className={`group cursor-pointer bg-zinc-900/50 border border-zinc-800 rounded-2xl overflow-hidden ${accent.cardBorder} hover:bg-zinc-900 hover:-translate-y-1 hover:shadow-2xl ${accent.cardShadow} transition-all duration-300 flex flex-col`}
     >
       <div className="relative h-44 overflow-hidden bg-zinc-800 flex-shrink-0">
         <img
@@ -164,7 +200,7 @@ function ProjectCard({ project, onClick }: { project: Project; onClick: () => vo
             target="_blank"
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
-            className="inline-flex items-center gap-1.5 text-xs text-blue-400 hover:text-blue-300 transition-colors font-medium"
+            className={`inline-flex items-center gap-1.5 text-xs ${accent.cardLink} transition-colors font-medium`}
           >
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -178,6 +214,7 @@ function ProjectCard({ project, onClick }: { project: Project; onClick: () => vo
 }
 
 function ProjectModal({ project, onClose }: { project: Project; onClose: () => void }) {
+  const accent = ACCENTS[project.accent ?? "blue"];
   const gallery = project.images?.length ? project.images : [project.img];
   const [imgIndex, setImgIndex] = useState(0);
 
@@ -269,7 +306,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
                     onClick={() => setImgIndex(i)}
                     aria-label={`Image ${i + 1}`}
                     className={`h-1.5 rounded-full transition-all duration-200 ${
-                      i === imgIndex ? "w-5 bg-blue-500" : "w-1.5 bg-zinc-600 hover:bg-zinc-500"
+                      i === imgIndex ? `w-5 ${accent.dotActive}` : "w-1.5 bg-zinc-600 hover:bg-zinc-500"
                     }`}
                   />
                 ))}
@@ -281,7 +318,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
         {/* Content */}
         <div className="p-6 overflow-y-auto">
           <div className="flex items-center gap-2 mb-3">
-            <span className="text-xs px-2.5 py-1 bg-blue-500/10 border border-blue-500/30 text-blue-400 rounded-full font-medium">
+            <span className={`text-xs px-2.5 py-1 border rounded-full font-medium ${accent.badge}`}>
               {project.category}
             </span>
           </div>
@@ -311,7 +348,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
               href={project.demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold rounded-lg transition-colors duration-200 shadow-lg shadow-blue-500/20"
+              className={`inline-flex items-center gap-2 px-4 py-2 text-white text-sm font-semibold rounded-lg transition-colors duration-200 shadow-lg ${accent.button}`}
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />

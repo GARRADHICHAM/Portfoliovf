@@ -53,7 +53,8 @@ export default function HeroSection() {
             "radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px)",
           backgroundSize: "28px 28px",
           maskImage: "linear-gradient(to bottom, black 30%, transparent 85%)",
-          WebkitMaskImage: "linear-gradient(to bottom, black 30%, transparent 85%)",
+          WebkitMaskImage:
+            "linear-gradient(to bottom, black 30%, transparent 85%)",
         }}
       />
 
@@ -83,7 +84,7 @@ export default function HeroSection() {
           {/* Availability badge */}
           <motion.div variants={fadeUp}>
             <span className="inline-flex items-center gap-2 text-xs text-blue-300/90 bg-blue-500/[0.07] border border-blue-500/20 rounded-full px-4 py-1.5 backdrop-blur-sm">
-              CDI disponible · Octobre 2026
+              CDI disponible · September 2026
             </span>
           </motion.div>
 
@@ -99,7 +100,10 @@ export default function HeroSection() {
           </motion.h1>
 
           {/* Title */}
-          <motion.p variants={fadeUp} className="text-lg sm:text-xl font-semibold text-zinc-300">
+          <motion.p
+            variants={fadeUp}
+            className="text-lg sm:text-xl font-semibold text-zinc-300"
+          >
             Ingénieur IA &amp; Data
           </motion.p>
 
@@ -120,11 +124,15 @@ export default function HeroSection() {
             variants={fadeUp}
             className="text-zinc-400 text-sm sm:text-base leading-relaxed max-w-lg"
           >
-            Ingénieur IA &amp; Data en fin de M2 MIAGE IA Appliquée (UCA). Mon parcours combine{" "}
+            Ingénieur IA &amp; Data en fin de M2 MIAGE IA Appliquée (UCA). Mon
+            parcours combine{" "}
             <span className="text-zinc-200 font-medium">multi-agents LLM</span>,{" "}
             <span className="text-zinc-200 font-medium">data science</span> et{" "}
-            <span className="text-zinc-200 font-medium">pipelines de données</span> — expériences
-            en startup, multinationale et laboratoire, déploiements sur AWS, GCP et OVH.
+            <span className="text-zinc-200 font-medium">
+              pipelines de données
+            </span>{" "}
+            — expériences en startup, multinationale et laboratoire,
+            déploiements sur AWS, GCP et OVH.
           </motion.p>
 
           {/* CTAs */}
@@ -133,12 +141,22 @@ export default function HeroSection() {
             className="flex items-center gap-3 flex-wrap justify-center lg:justify-start pt-1"
           >
             <a
-              href="/CV_HICHAM_GARRAD_Ni.pdf"
+              href="/CV_Hicham_GARRAD_portfolio.pdf"
               download
               className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold rounded-lg transition-all duration-200 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 hover:-translate-y-0.5"
             >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                />
               </svg>
               Télécharger le CV
             </a>
@@ -147,8 +165,18 @@ export default function HeroSection() {
               className="inline-flex items-center gap-2 px-5 py-2.5 bg-transparent hover:bg-zinc-900 text-zinc-200 text-sm font-semibold rounded-lg border border-zinc-800 hover:border-zinc-600 transition-all duration-200 hover:-translate-y-0.5"
             >
               Me contacter
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
               </svg>
             </a>
           </motion.div>
@@ -164,14 +192,17 @@ export default function HeroSection() {
                 aria-label={social.label}
                 className="w-9 h-9 flex items-center justify-center rounded-lg text-zinc-500 hover:text-zinc-200 hover:bg-zinc-900 border border-transparent hover:border-zinc-800 transition-all duration-200"
               >
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <svg
+                  className="w-4 h-4"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path d={social.path} />
                 </svg>
               </a>
             ))}
           </motion.div>
         </div>
-
       </motion.div>
 
       {/* Scroll indicator */}
@@ -181,13 +212,25 @@ export default function HeroSection() {
         transition={{ delay: 1.5 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
       >
-        <span className="text-xs text-zinc-700 tracking-widest uppercase">Scroll</span>
+        <span className="text-xs text-zinc-700 tracking-widest uppercase">
+          Scroll
+        </span>
         <motion.div
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
         >
-          <svg className="w-4 h-4 text-zinc-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
+          <svg
+            className="w-4 h-4 text-zinc-700"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={1.5}
+              d="M19 9l-7 7-7-7"
+            />
           </svg>
         </motion.div>
       </motion.div>

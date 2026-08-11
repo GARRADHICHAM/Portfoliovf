@@ -37,7 +37,7 @@ export default function NavBar() {
           if (entry.isIntersecting) setActiveSection(entry.target.id);
         }
       },
-      { rootMargin: "-40% 0px -55% 0px" }
+      { rootMargin: "-40% 0px -55% 0px" },
     );
 
     sections.forEach((el) => observer.observe(el));
@@ -110,11 +110,26 @@ export default function NavBar() {
             onClick={() => setMobileOpen(!mobileOpen)}
             className="p-2 text-zinc-400 hover:text-zinc-100 rounded-lg hover:bg-zinc-900 transition-colors"
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
               {mobileOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M6 18L18 6M6 6l12 12" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1.75}
+                  d="M6 18L18 6M6 6l12 12"
+                />
               ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M4 6h16M4 12h16M4 18h10" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1.75}
+                  d="M4 6h16M4 12h16M4 18h10"
+                />
               )}
             </svg>
           </button>
@@ -147,7 +162,7 @@ export default function NavBar() {
               ))}
               <div className="pt-2">
                 <a
-                  href="/CV_HICHAM_GARRAD_Ni.pdf"
+                  href="/CV_Hicham_GARRAD_portfolio.pdf"
                   download
                   className="block px-3 py-2.5 text-sm font-semibold text-center bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors"
                 >

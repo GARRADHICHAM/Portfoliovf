@@ -18,6 +18,7 @@ const experiences = [
       "Intégration d'un chatbot RAG et déploiement de l'architecture complète sur VPS OVH via CI/CD GitHub Actions",
     ],
     tags: ["Python", "FastAPI", "Next.js", "MySQL", "NLP", "RAG", "Docker", "GitHub Actions"],
+    link: "https://cartographie.campus-industriesculturellescreatives-sud.fr/",
   },
   {
     id: 1,
@@ -207,6 +208,20 @@ export default function ExperienceSection() {
                                     </span>
                                   ))}
                                 </div>
+                                {exp.link && (
+                                  <a
+                                    href={exp.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    onClick={(e) => e.stopPropagation()}
+                                    className="inline-flex items-center gap-1.5 text-xs text-blue-400 hover:text-blue-300 transition-colors font-medium"
+                                  >
+                                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                    </svg>
+                                    Voir la plateforme
+                                  </a>
+                                )}
                               </div>
                             </motion.div>
                           )}
