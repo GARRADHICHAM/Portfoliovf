@@ -1,6 +1,10 @@
 "use client";
 import { useState, FormEvent } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import AnimatedSection from "./ui/AnimatedSection";
+import SectionHeading from "./ui/SectionHeading";
+import TiltCard from "./ui/TiltCard";
+import Magnetic from "./ui/Magnetic";
 
 type SocialItem = {
   label: string;
@@ -62,10 +66,8 @@ export default function ContactSection() {
     const form = e.currentTarget;
     const name = (form.elements.namedItem("name") as HTMLInputElement).value;
     const subject =
-      (form.elements.namedItem("subject") as HTMLInputElement).value ||
-      "Contact depuis le portfolio";
-    const message = (form.elements.namedItem("message") as HTMLTextAreaElement)
-      .value;
+      (form.elements.namedItem("subject") as HTMLInputElement).value || "Contact depuis le portfolio";
+    const message = (form.elements.namedItem("message") as HTMLTextAreaElement).value;
 
     setStatus("sending");
     const sub = encodeURIComponent(`[Portfolio] ${subject}`);
@@ -80,157 +82,151 @@ export default function ContactSection() {
   };
 
   return (
-    <section
-      id="contact"
-      className="relative bg-[#09090B] py-24 sm:py-32 overflow-hidden"
-    >
-      <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-72 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 60% 100% at 50% 0%, rgba(37, 99, 235, 0.1) 0%, transparent 70%)",
-        }}
-      />
-
+    <section id="contact" className="relative pt-28 sm:pt-36 pb-10">
       <div className="max-w-6xl mx-auto px-6">
-        <AnimatedSection>
-          <p className="text-xs font-semibold text-blue-400 tracking-widest uppercase mb-2">
-            Contact
-          </p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-zinc-100 mb-3">
-            Travaillons ensemble
-          </h2>
-          <p className="text-zinc-400 text-base mb-14 max-w-lg">
-            Je suis actuellement en stage et disponible pour un CDI à partir de
-            September 2026. N&apos;hésitez pas à me contacter.
-          </p>
-        </AnimatedSection>
+        <SectionHeading
+          index="06"
+          eyebrow="Contact"
+          title="Travaillons"
+          highlight="ensemble"
+          subtitle="Je suis disponible immédiatement pour un CDI. N'hésitez pas à me contacter."
+        />
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+        <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-8 lg:gap-12">
           {/* Left: contact info */}
-          <AnimatedSection delay={0.1}>
-            <div className="space-y-8">
-              <div className="space-y-4">
-                {socials.map((social) => (
+          <div className="space-y-4">
+            {socials.map((social, i) => (
+              <AnimatedSection key={social.label} delay={0.1 + i * 0.08} direction="left">
+                <TiltCard max={8} className="glass rounded-2xl hover:border-sky-400/25 transition-colors">
                   <a
-                    key={social.label}
                     href={social.href}
-                    target={
-                      social.href.startsWith("http") ? "_blank" : undefined
-                    }
+                    target={social.href.startsWith("http") ? "_blank" : undefined}
                     rel="noopener noreferrer"
-                    className="flex items-center gap-4 group"
+                    className="flex items-center gap-4 p-4"
                   >
-                    <div className="w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-500 group-hover:border-blue-500/50 group-hover:text-blue-400 transition-all duration-200 flex-shrink-0">
+                    <span
+                      className="grid place-items-center w-12 h-12 rounded-xl bg-gradient-to-br from-sky-500/15 to-violet-500/15 border border-white/[0.08] text-sky-300 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 flex-shrink-0"
+                      style={{ transform: "translateZ(30px)" }}
+                    >
                       {social.renderIcon()}
-                    </div>
-                    <div>
-                      <p className="text-xs text-zinc-600">{social.label}</p>
-                      <p className="text-sm text-zinc-300 group-hover:text-zinc-100 transition-colors">
+                    </span>
+                    <span className="min-w-0 flex-1">
+                      <span className="block font-mono text-[11px] text-zinc-500 uppercase tracking-widest">
+                        {social.label}
+                      </span>
+                      <span className="block text-sm text-zinc-200 group-hover:text-white truncate transition-colors">
                         {social.value}
-                      </p>
-                    </div>
+                      </span>
+                    </span>
+                    <svg
+                      className="w-4 h-4 text-zinc-600 group-hover:text-sky-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H8M17 7v9" />
+                    </svg>
                   </a>
-                ))}
-              </div>
+                </TiltCard>
+              </AnimatedSection>
+            ))}
 
-              <div className="p-5 rounded-xl bg-zinc-900/50 border border-zinc-800">
-                <div className="flex items-center gap-2 mb-2">
-                  <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
-                  <span className="text-xs font-semibold text-zinc-500 uppercase tracking-wider">
+            <AnimatedSection delay={0.35} direction="left">
+              <div className="relative overflow-hidden rounded-2xl p-6 border border-emerald-400/20 bg-gradient-to-br from-emerald-500/[0.08] via-transparent to-sky-500/[0.06]">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-70 animate-ping" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+                  </span>
+                  <span className="font-mono text-[11px] text-emerald-300/80 uppercase tracking-widest">
                     Disponibilité
                   </span>
                 </div>
-                <p className="text-zinc-200 text-sm font-semibold">
-                  CDI · September 2026
-                </p>
-                <p className="text-zinc-500 text-xs mt-1">
-                  Mobilité nationale, France · Open au remote
-                </p>
+                <p className="font-display text-xl font-semibold text-zinc-50">Disponible immédiatement · CDI</p>
+                <p className="text-zinc-400 text-sm mt-1">Mobilité nationale, France · Open au remote</p>
               </div>
-            </div>
-          </AnimatedSection>
+            </AnimatedSection>
+          </div>
 
           {/* Right: form */}
           <AnimatedSection delay={0.2} direction="right">
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-medium text-zinc-500 mb-1.5">
-                    Nom
-                  </label>
-                  <input
-                    name="name"
-                    type="text"
-                    required
-                    placeholder="Votre nom"
-                    className="w-full px-4 py-2.5 text-sm bg-zinc-900 border border-zinc-800 rounded-lg text-zinc-200 placeholder-zinc-600 focus:outline-none focus:border-blue-500 transition-colors"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-medium text-zinc-500 mb-1.5">
-                    Sujet
-                  </label>
-                  <input
-                    name="subject"
-                    type="text"
-                    placeholder="Sujet (optionnel)"
-                    className="w-full px-4 py-2.5 text-sm bg-zinc-900 border border-zinc-800 rounded-lg text-zinc-200 placeholder-zinc-600 focus:outline-none focus:border-blue-500 transition-colors"
-                  />
-                </div>
-              </div>
-              <div>
-                <label className="block text-xs font-medium text-zinc-500 mb-1.5">
-                  Email
+            <form onSubmit={handleSubmit} className="glass rounded-3xl p-6 sm:p-8 space-y-5">
+              <div className="grid sm:grid-cols-2 gap-5">
+                <label className="block">
+                  <span className="block font-mono text-[11px] text-zinc-500 uppercase tracking-widest mb-2">Nom</span>
+                  <input name="name" type="text" required placeholder="Votre nom" className="input-glow" />
                 </label>
-                <input
-                  name="email"
-                  type="email"
-                  required
-                  placeholder="votre@email.com"
-                  className="w-full px-4 py-2.5 text-sm bg-zinc-900 border border-zinc-800 rounded-lg text-zinc-200 placeholder-zinc-600 focus:outline-none focus:border-blue-500 transition-colors"
-                />
-              </div>
-              <div>
-                <label className="block text-xs font-medium text-zinc-500 mb-1.5">
-                  Message
+                <label className="block">
+                  <span className="block font-mono text-[11px] text-zinc-500 uppercase tracking-widest mb-2">Sujet</span>
+                  <input name="subject" type="text" placeholder="Sujet (optionnel)" className="input-glow" />
                 </label>
+              </div>
+              <label className="block">
+                <span className="block font-mono text-[11px] text-zinc-500 uppercase tracking-widest mb-2">Email</span>
+                <input name="email" type="email" required placeholder="votre@email.com" className="input-glow" />
+              </label>
+              <label className="block">
+                <span className="block font-mono text-[11px] text-zinc-500 uppercase tracking-widest mb-2">Message</span>
                 <textarea
                   name="message"
                   required
                   rows={5}
                   placeholder="Votre message..."
-                  className="w-full px-4 py-2.5 text-sm bg-zinc-900 border border-zinc-800 rounded-lg text-zinc-200 placeholder-zinc-600 focus:outline-none focus:border-blue-500 transition-colors resize-none"
+                  className="input-glow resize-none"
                 />
-              </div>
-              <button
-                type="submit"
-                disabled={status !== "idle"}
-                className="w-full py-2.5 px-6 text-sm font-semibold rounded-lg transition-all duration-200 disabled:opacity-70 bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-500/20"
-              >
-                {status === "idle" && "Envoyer le message"}
-                {status === "sending" && "Ouverture du client mail..."}
-                {status === "sent" && "Message envoyé — merci !"}
-              </button>
+              </label>
+              <Magnetic strength={0.15} className="w-full">
+                <button
+                  type="submit"
+                  disabled={status !== "idle"}
+                  className="relative w-full overflow-hidden py-3.5 px-6 text-sm font-semibold rounded-xl text-white bg-gradient-to-r from-blue-600 via-blue-500 to-violet-600 shadow-xl shadow-blue-500/25 hover:brightness-110 disabled:opacity-80 transition"
+                >
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={status}
+                      initial={{ y: 16, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      exit={{ y: -16, opacity: 0 }}
+                      transition={{ duration: 0.25 }}
+                      className="inline-flex items-center gap-2"
+                    >
+                      {status === "idle" && (
+                        <>
+                          Envoyer le message
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                          </svg>
+                        </>
+                      )}
+                      {status === "sending" && "Ouverture du client mail..."}
+                      {status === "sent" && "Message envoyé — merci !"}
+                    </motion.span>
+                  </AnimatePresence>
+                </button>
+              </Magnetic>
             </form>
           </AnimatedSection>
         </div>
       </div>
 
       {/* Footer */}
-      <div className="max-w-6xl mx-auto px-6 mt-24 pt-8 border-t border-zinc-900">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-zinc-700">
-            © 2026 Hicham Garrad — Ingénieur IA &amp; Data
-          </p>
-          <a
-            href="#hero"
-            className="text-xs text-zinc-600 hover:text-zinc-400 transition-colors"
-          >
-            Haut de page ↑
-          </a>
+      <footer className="max-w-6xl mx-auto px-6 mt-28">
+        <div className="relative pt-8">
+          <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-sky-400/30 to-transparent" />
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-xs text-zinc-500">© 2026 Hicham Garrad — Ingénieur IA &amp; Data</p>
+            <a
+              href="#hero"
+              className="group inline-flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-200 transition-colors"
+            >
+              Haut de page
+              <span className="grid place-items-center w-7 h-7 rounded-full border border-white/10 group-hover:-translate-y-1 group-hover:border-sky-400/40 transition-all">
+                ↑
+              </span>
+            </a>
+          </div>
         </div>
-      </div>
+      </footer>
     </section>
   );
 }

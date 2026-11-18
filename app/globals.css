@@ -4,7 +4,38 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  background: #050508;
+}
+
+@layer components {
+  /* Frosted panel used across sections */
+  .glass {
+    @apply bg-zinc-900/40 backdrop-blur-xl border border-white/[0.07];
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.04);
+  }
+
+  .glass-strong {
+    @apply bg-zinc-950/70 backdrop-blur-2xl border border-white/[0.08];
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-sky-300 via-blue-400 to-violet-400 bg-clip-text text-transparent;
+    background-size: 200% 200%;
+    animation: gradient-shift 6s ease infinite;
+  }
+
+  .chip {
+    @apply px-2.5 py-1 text-xs rounded-md bg-white/[0.04] border border-white/[0.08] text-zinc-300;
+  }
+
+  .input-glow {
+    @apply w-full px-4 py-3 text-sm rounded-xl bg-zinc-950/60 border border-white/[0.08] text-zinc-100 placeholder-zinc-600 transition-all duration-200;
+    @apply focus:outline-none focus:border-sky-400/60 focus:ring-4 focus:ring-sky-400/10;
+  }
 }
 
 @keyframes gradient-shift {
@@ -12,13 +43,65 @@ html {
   50% { background-position: 100% 50%; }
 }
 
-.animate-gradient {
-  background-size: 200% 200%;
-  animation: gradient-shift 6s ease infinite;
+/* Rotating conic border (hero portrait, featured project) */
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes spin-angle {
+  to { --angle: 360deg; }
+}
+
+.conic-border {
+  background: conic-gradient(
+    from var(--angle),
+    rgba(56, 189, 248, 0.9),
+    rgba(139, 92, 246, 0.2) 25%,
+    rgba(59, 130, 246, 0.9) 50%,
+    rgba(139, 92, 246, 0.2) 75%,
+    rgba(56, 189, 248, 0.9)
+  );
+  animation: spin-angle 6s linear infinite;
+}
+
+@keyframes scene-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-scene-in {
+  animation: scene-in 1.8s ease-out both;
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float-y 5s ease-in-out infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -26,15 +109,11 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #27272a;
+  background: linear-gradient(#1e3a8a, #4c1d95);
   border-radius: 4px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #3f3f46;
-}
-
 ::selection {
-  background: rgba(37, 99, 235, 0.3);
+  background: rgba(56, 189, 248, 0.3);
   color: #f4f4f5;
 }

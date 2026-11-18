@@ -6,33 +6,24 @@ import ProjectsSection from "@/components/ProjectsSection";
 import CertificationsSection from "@/components/CertificationsSection";
 import BeyondCode from "@/components/BeyondCode";
 import ContactSection from "@/components/ContactSection";
-
-function Divider() {
-  return (
-    <div className="bg-[#09090B]">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="h-px bg-gradient-to-r from-transparent via-zinc-800 to-transparent" />
-      </div>
-    </div>
-  );
-}
+import SceneBackground from "@/components/three/SceneBackground";
+import CursorGlow from "@/components/ui/CursorGlow";
+import NetworkHUD from "@/components/three/NetworkHUD";
 
 export default function Home() {
   return (
     <>
+      <SceneBackground />
+      <CursorGlow />
+      <NetworkHUD />
       <NavBar />
-      <main>
+      <main className="relative z-10">
         <HeroSection />
         <AboutSection />
-        <Divider />
         <ExperienceSection />
-        <Divider />
         <ProjectsSection />
-        <Divider />
         <CertificationsSection />
-        <Divider />
         <BeyondCode />
-        <Divider />
         <ContactSection />
       </main>
     </>

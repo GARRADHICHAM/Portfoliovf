@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import { Providers } from "./providers";
 import "./globals.css";
 
@@ -9,10 +9,22 @@ const inter = Inter({
   display: "swap",
 });
 
+const display = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Hicham Garrad — Ingénieur IA & Data",
   description:
-    "Ingénieur IA & Data en fin de M2 MIAGE IA Appliquée (UCA). Spécialisé en multi-agents LLM, pipelines data et développement full stack. Disponible pour CDI octobre 2026.",
+    "Ingénieur IA & Data diplômé d'un M2 MIAGE IA Appliquée (UCA). Spécialisé en multi-agents LLM, pipelines data et développement full stack. Disponible immédiatement pour un CDI.",
   keywords: [
     "Hicham Garrad",
     "Ingénieur IA",
@@ -45,8 +57,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr" suppressHydrationWarning className={inter.variable}>
-      <body className="bg-[#09090B] text-zinc-100 antialiased">
+    <html lang="fr" suppressHydrationWarning className={`${inter.variable} ${display.variable} ${mono.variable}`}>
+      <body className="bg-[#050508] text-zinc-100 antialiased">
         <Providers>{children}</Providers>
       </body>
     </html>
